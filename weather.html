@@ -18,9 +18,9 @@
         fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=37.8719&lon=-122.2585&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
             .then(r => r.json())
             .then(({ city, list }) => {
-                console.log(city)
-                console.log(~~list[0].main.temp);
+                //Optional Place to Pull City Name
                 document.querySelector('.name').textContent = `${city.name} City Details`
+                //Displays 5 Day Forecast
                 for (i = 0; i < list.length; i++) {
                     if (list[i].dt_txt.includes("15:00:00")) {
                         const timeElement = document.createElement('div')
@@ -35,19 +35,20 @@
                     }
                 }
             })
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=37.8719&lon=-122.2585&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
-            .then(r => r.json())
-            .then(r => {
-                for (i = 0; i < r.list.length; i++) {
-                    if (r.list[i].dt_txt.includes("15:00:00")) {
-                        console.log(r.list[i])
-                    }
-                    else {
-                        console.log("wrong time");
-                    }
+        //Used for testing the API
+        // fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=37.8719&lon=-122.2585&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
+        //     .then(r => r.json())
+        //     .then(r => {
+        //         for (i = 0; i < r.list.length; i++) {
+        //             if (r.list[i].dt_txt.includes("15:00:00")) {
+        //                 console.log(r.list[i])
+        //             }
+        //             else {
+        //                 console.log("wrong time");
+        //             }
 
-                }
-            })
+        //         }
+        //     })
     </script>
 </body>
 
