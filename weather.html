@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
-</head>
+    </head>
 
 <body>
     <div class="name"></div>
     <div class="forecast"></div>
-    <div class="weather"></div>
 
 
     <script>
@@ -23,15 +22,15 @@
                 //Displays 5 Day Forecast
                 for (i = 0; i < list.length; i++) {
                     if (list[i].dt_txt.includes("15:00:00")) {
-                        const timeElement = document.createElement('div')
-                        const tempElement = document.createElement('div')
                         const iconElement = document.createElement('div')
-                        timeElement.innerHTML = `${list[i].dt_txt}`
-                        tempElement.innerHTML = ~~`${list[i].main.temp}` + "&#176"
+                        const tempElement = document.createElement('div')
+                        const timeElement = document.createElement('div')
                         iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${list[i].weather[0].icon}.png" alt="${list[i].weather[0].icon}">`
-                        document.querySelector('.forecast').append(timeElement)
-                        document.querySelector('.forecast').append(tempElement)
+                        tempElement.innerHTML = ~~`${list[i].main.temp}` + "&#176"
+                        timeElement.innerHTML = `${list[i].dt_txt}`
                         document.querySelector('.forecast').append(iconElement)
+                        document.querySelector('.forecast').append(tempElement)
+                        document.querySelector('.forecast').append(timeElement)
                     }
                 }
             })
