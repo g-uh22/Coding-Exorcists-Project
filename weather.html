@@ -14,10 +14,12 @@
 
 
     <script>
+        // Weather API call
         fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=37.8719&lon=-122.2585&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
             .then(r => r.json())
             .then(({ city, list }) => {
                 console.log(city)
+                console.log(~~list[0].main.temp);
                 document.querySelector('.name').textContent = `${city.name} City Details`
                 for (i = 0; i < list.length; i++) {
                     if (list[i].dt_txt.includes("15:00:00")) {
@@ -25,7 +27,7 @@
                         const tempElement = document.createElement('div')
                         const iconElement = document.createElement('div')
                         timeElement.innerHTML = `${list[i].dt_txt}`
-                        tempElement.innerHTML = `${list[i].main.temp}`
+                        tempElement.innerHTML = ~~`${list[i].main.temp}` + "&#176"
                         iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${list[i].weather[0].icon}.png" alt="${list[i].weather[0].icon}">`
                         document.querySelector('.forecast').append(timeElement)
                         document.querySelector('.forecast').append(tempElement)
@@ -33,19 +35,19 @@
                     }
                 }
             })
-        // fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=37.8719&lon=-122.2585&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
-        //     .then(r => r.json())
-        //     .then(r => {
-        //         for (i = 0; i < r.list.length; i++) {
-        //             if (r.list[i].dt_txt.includes("12:00:00")) {
-        //                 console.log(r.list[i].dt_txt)
-        //             }
-        //             else {
-        //                 console.log("wrong time");
-        //             }
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=37.8719&lon=-122.2585&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
+            .then(r => r.json())
+            .then(r => {
+                for (i = 0; i < r.list.length; i++) {
+                    if (r.list[i].dt_txt.includes("15:00:00")) {
+                        console.log(r.list[i])
+                    }
+                    else {
+                        console.log("wrong time");
+                    }
 
-        //         }
-        //     })
+                }
+            })
     </script>
 </body>
 
