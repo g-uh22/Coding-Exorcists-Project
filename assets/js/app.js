@@ -1,3 +1,28 @@
+// Form: Loads & prevents from closing
+$(document).ready(function(){
+  $("#signUp").modal({backdrop: 'static', keyboard:false, show:true});
+});
+
+
+// //Get Modal Element
+// const modal = document.getElementById('registerModal');
+// //open modal button
+// const modalBtn = document.getElementById('modalBtn');
+// //Close Button
+// const closebtn = document.getElementsByClassName('closebtn')
+
+// //Listen for open click
+// modalBtn.addEventListener('click', openModal);
+// //Listen for close click
+// modalBtn.addEventListener('click', closeModal);
+// //Listen for outside Click
+// modalBtn.addEventListener('click', outsideClick);
+
+// //Function to open modal
+// function openModal() {
+//     modal.style.display = 'block';
+// }
+
 
 const uniData = []
 const schools
