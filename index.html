@@ -8,22 +8,24 @@
     <link rel="stylesheet" href="./assets/css/style.css"->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Muli|Patua+One|Poppins" rel="stylesheet">
-`
+
     <title>College Match</title>
 </head>
 <body>
 <!-- <header><strong>COLLEGE MATCH</strong></header> -->
 <i class="fas fa-university"><border>COLLEGE MATCH</border></i>
   <!-- Search Fields -->
+  <div class="container">
   <form autocomplete="off" action="/action_page.php">
-    <div class="autocomplete centered" style="width:300px;">
-      <input id="majors" type="text" name="myInput" placeholder="Programs">
+    <div class="autocomplete" style="width:300px;" >
+      <input id="majors" type="text" name="myInput" class="form-control" placeholder="Programs">
     </div>
     <div class="autocomplete" style="width:300px;">
-        <input id="schools" type="text" name="myInput" placeholder="Schools">
+        <input id="schools" type="text" name="myInput" class="form-control" placeholder="Schools">
       </div>
     <input type="submit">
   </form>
+</div>
 
 <!-- Registration Modal -->
   <form>
@@ -45,7 +47,8 @@
           <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Email</label> -->
       </div>
         <div class="md-form mb-4">
-          <input required type="text" id="defaultForm-password" class="form-control validate" placeholder="password">
+          <input required type="password" id="defaultForm-password" class="form-control validate" placeholder="password" id="myInput">
+          
           <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label> -->
         </div>
         <div class="md-form mb-4">
@@ -53,7 +56,7 @@
           <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Age</label> -->
         </div>        
         <div class="md-form mb-4">
-            <input type="number" min="00000" max="99999" id="defaultForm-zip" class="form-control validate" placeholder="zip" pattern="[0-9]*" required>
+            <input type="" min="00000" max="99999" id="defaultForm-zip" class="form-control validate" placeholder="zip" pattern="[0-9]*" required>
             <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Zip</label> -->
           </div>         
       </div>
