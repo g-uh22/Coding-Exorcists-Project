@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    </head>
+
+<body>
+    <div class="name"></div>
+    <div class="forecast"></div>
+
+
+    <script>
+        // Weather API call
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=37.8719&lon=-122.2585&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
+            .then(r => r.json())
+            .then(({ city, list }) => {
+                //Optional Place to Pull City Name
+                document.querySelector('.name').textContent = `${city.name} City Details`
+                //Displays 5 Day Forecast
+                for (i = 0; i < list.length; i++) {
+                    if (list[i].dt_txt.includes("15:00:00")) {
+                        const iconElement = document.createElement('div')
+                        const tempElement = document.createElement('div')
+                        const timeElement = document.createElement('div')
+                        iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${list[i].weather[0].icon}.png" alt="${list[i].weather[0].icon}">`
+                        tempElement.innerHTML = ~~`${list[i].main.temp}` + "&#176"
+                        timeElement.innerHTML = `${list[i].dt_txt}`
+                        document.querySelector('.forecast').append(iconElement)
+                        document.querySelector('.forecast').append(tempElement)
+                        document.querySelector('.forecast').append(timeElement)
+                    }
+                }
+            })
+        //Used for testing the API
+        // fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=37.8719&lon=-122.2585&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
+        //     .then(r => r.json())
+        //     .then(r => {
+        //         for (i = 0; i < r.list.length; i++) {
+        //             if (r.list[i].dt_txt.includes("15:00:00")) {
+        //                 console.log(r.list[i])
+        //             }
+        //             else {
+        //                 console.log("wrong time");
+        //             }
+
+        //         }
+        //     })
+    </script>
+</body>
+
+</html>
