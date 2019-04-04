@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  HEAD
 >>>>>>> b33289c01ae6fcf0125ec2d4bc82683cdd0d87f0
+=======
+
+>>>>>>> 22acefa355eeeb30b37543c354aa951511169f11
 // Form: Loads & prevents from closing
 $(document).ready(function(){
   $("#signUp").modal({backdrop: 'static', keyboard:false, show:true});
