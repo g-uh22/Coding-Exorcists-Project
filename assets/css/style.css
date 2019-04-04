@@ -48,9 +48,18 @@ border-right-color: transparent;
 font-family: 'Poppins', sans-serif;
 }
 
+
+.container {
+  border-radius: 5px;
+  background-color:transparent;
+  padding: 20px;
+  text-align: center; 
+}
+
 /* .autocomplete {
   position: 
 } */
+
 /* fonts */
 /* font-family: 'Bree Serif', serif;
 font-family: 'Patua One', cursive;
