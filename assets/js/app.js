@@ -1,4 +1,4 @@
- HEAD
+
 // Form: Loads & prevents from closing
 $(document).ready(function(){
   $("#signUp").modal({backdrop: 'static', keyboard:false, show:true});
