@@ -1,5 +1,5 @@
 body {
-  background-image: url('../images/study.jpg');
+  background-image: url('../images/kelli-tungay-324329-unsplash.jpg');
   height: 100%;
   width: auto;
   background-repeat: no-repeat;
@@ -9,26 +9,60 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  font-family: 'Helvetica Neue';
+}
+
+#parent {
+  float: left;
+}
+
+#child {
+  float: right;
+  margin-left: 10px;
+}
+
+.autocomplete {
+  width: 650px;
+}
+#threeSchools {
+  background-color: lightblue;
+  width: 450px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 300px;
+  width: 350px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+}
+.logoBackground {
+  background-color: white;
+  height: 320px;
+  opacity: 0.95;
 }
 
 /* Fixed width & padding  */
 
-.modal-dialog-centered {
-  max-width: 400px;
-  min-width: 300px;
-  height: auto;
-  margin: auto;
-  padding: 10px;
-}
+/* .modal-dialog-centered {
+border-radius: 500px;
+max-width: 400px;
+min-width: 300px;
+height: auto;
+margin: auto;
+padding: 10px;
+} */
 
 .modal-header {
-  background-color: lightblue;
+background-color:lightskyblue;
 }
 
 .modal-footer {
-  background-color: lightblue;
-}
+background-color:lightblue;
+color: white;
 
 .modal-title {
   font-family: 'Poppins', sans-serif;
@@ -49,15 +83,18 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.container {
+
+/* .container {
   border-radius: 5px;
   background-color: transparent;
   padding: 20px;
   text-align: center;
-}
+} */
+
 
 /* .autocomplete {
-  position: 
+  margin: 0 auto;
+  text-align: center;
 } */
 
 /* fonts */
@@ -71,6 +108,10 @@ font-family: 'Muli', sans-serif; */
   box-sizing: border-box;
 }
 
+
+
+/* HAMZA */
+* { box-sizing: border-box; }
 body {
   font: 16px Arial;
 }
@@ -79,13 +120,18 @@ body {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
 }
 
 input {
   border: 1px solid transparent;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   padding: 10px;
   font-size: 16px;
+  position: center;
 }
 
 input[type=text] {
@@ -124,9 +170,22 @@ input[type=submit] {
 
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
+
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
 }
+
+
+.disabled{
+  pointer-events: none;
+  color: gray;
+  background-color: rgb(165, 160, 160);
+  /* opacity: 0.4; */
+}
+
+/*   background-color: DodgerBlue !important;
+  color: #ffffff;
+} */
 
 
 
