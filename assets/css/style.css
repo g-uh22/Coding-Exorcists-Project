@@ -1,5 +1,5 @@
 body {
-  background-image: url('../images/study.jpg');
+  background-image: url('../images/kelli-tungay-324329-unsplash.jpg');
   height: 100%;
   width: auto;
   background-repeat: no-repeat;
@@ -9,34 +9,83 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  font-family: 'Helvetica Neue';
+}
+
+/* #parent {
+  float: left;
+}
+
+#child {
+  float: right;
+  margin-left: 10px;
+} */
+
+#threeSchools {
+  background-color: lightblue;
+  width: 450px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 300px;
+  width: 350px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+}
+.logoBackground {
+  background-color: white;
+  height: 320px;
+  opacity: 0.95;
 }
 
 /* Fixed width & padding  */
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
-.modal-dialog-centered {
-  max-width: 400px;
-  min-width: 300px;
-  height: auto;
-  margin: auto;
-  padding: 10px;
-}
+>>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
+=======
+
+>>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
+/* .modal-dialog-centered {
+border-radius: 500px;
+max-width: 400px;
+min-width: 300px;
+height: auto;
+margin: auto;
+padding: 10px;
+} */
 
 .modal-header {
-  background-color: lightblue;
+background-color:lightskyblue;
 }
 
 .modal-footer {
-  background-color: lightblue;
+background-color:lightblue;
+color: white;
 }
-
 .modal-title {
   font-family: 'Poppins', sans-serif;
 }
 
 .btn {
+<<<<<<< HEAD
+<<<<<<< HEAD
+border: 10px;
+font-family: 'Poppins', sans-serif;
+
+=======
   border: 10px;
   font-family: 'Poppins', sans-serif;
+>>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
+=======
+  border: 10px;
+  font-family: 'Poppins', sans-serif;
+>>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 }
 
 .form-control {
@@ -49,17 +98,26 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.container {
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
+/* .container {
   border-radius: 5px;
   background-color: transparent;
   padding: 20px;
   text-align: center;
-}
-
-/* .autocomplete {
-  position: 
 } */
 
+
+/* .autocomplete {
+  margin: 0 auto;
+  text-align: center;
+} */
+
+>>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
 /* fonts */
 
 /* font-family: 'Bree Serif', serif;
@@ -71,6 +129,10 @@ font-family: 'Muli', sans-serif; */
   box-sizing: border-box;
 }
 
+
+
+/* HAMZA */
+* { box-sizing: border-box; }
 body {
   font: 16px Arial;
 }
@@ -79,13 +141,18 @@ body {
   /*the container must be positioned relative:*/
   position: relative;
   display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
 }
 
 input {
   border: 1px solid transparent;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   padding: 10px;
   font-size: 16px;
+  position: center;
 }
 
 input[type=text] {
@@ -97,7 +164,13 @@ input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 
+>>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
 .autocomplete-items {
   position: absolute;
   border: 1px solid #d4d4d4;
@@ -124,12 +197,22 @@ input[type=submit] {
 
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
+
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
 }
 
 
+.disabled{
+  pointer-events: none;
+  color: gray;
+  background-color: rgb(165, 160, 160);
+  /* opacity: 0.4; */
+}
 
+/*   background-color: DodgerBlue !important;
+  color: #ffffff;
+} */
 
 
 
@@ -196,6 +279,9 @@ input[type=submit] {
 
 
 
+
+
+/* Bryan's Card CSS */
 /* CSS for the Cards */
 @media (max-width: 768px) {
   #row1 {
