@@ -11,18 +11,15 @@ body {
   background-attachment: fixed;
 }
 
-#parent {
+/* #parent {
   float: left;
 }
 
 #child {
   float: right;
   margin-left: 10px;
-}
+} */
 
-.autocomplete {
-  width: 650px;
-}
 #threeSchools {
   background-color: lightblue;
   width: 450px;
@@ -46,14 +43,14 @@ body {
 }
 
 /* Fixed width & padding  */
-.modal-dialog-centered {
+/* .modal-dialog-centered {
 border-radius: 500px;
 max-width: 400px;
 min-width: 300px;
 height: auto;
 margin: auto;
 padding: 10px;
-}
+} */
 
 .modal-header {
 background-color:lightskyblue;
@@ -70,7 +67,7 @@ font-family: 'Poppins', sans-serif;
 
 .btn {
 border: 10px;
-font-family: 'Poppins', sans-serif
+font-family: 'Poppins', sans-serif;
 
 }
 
@@ -84,11 +81,6 @@ border-right-color: transparent;
 font-family: 'Poppins', sans-serif;
 }
 
-
-/* .autocomplete {
-  margin: 0 auto;
-  text-align: center;
-} */
 
 /* fonts */
 /* font-family: 'Bree Serif', serif;
@@ -128,12 +120,6 @@ input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
 }
-.autocomplete {
-  object-position: center;
-  float: right;
-}
-
-
 .autocomplete-items {
   position: absolute;
   border: 1px solid #d4d4d4;

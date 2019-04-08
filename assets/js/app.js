@@ -1,28 +1,44 @@
+// $(document).ready(function(){
+//   $(".container").backdrop({backdrop: 'hide'});
+// });
+
+
 // Form: Loads & prevents from closing
-$(document).ready(function(){
-  $("#signUp").modal({backdrop: 'static', keyboard:false, show:true});
+$(document).ready(function () {
+    $("#signUp").modal({ backdrop: 'static', keyboard: false, show: true });
+    $("#signUp").modal('show');
 });
 
+// $("#registerbtn").on("click", e=> {
+//     console.log('hello')
+//     e.preventDefault();
+//     $('#signUp').modal('hide')
+// });
 
-// //Get Modal Element
-// const modal = document.getElementById('registerModal');
-// //open modal button
-// const modalBtn = document.getElementById('modalBtn');
-// //Close Button
-// const closebtn = document.getElementsByClassName('closebtn')
+$("#registerbtn").on("click", e=> {
+    e.preventDefault();
+    $('#signUp').modal('hide')
+});
 
-// //Listen for open click
-// modalBtn.addEventListener('click', openModal);
-// //Listen for close click
-// modalBtn.addEventListener('click', closeModal);
-// //Listen for outside Click
-// modalBtn.addEventListener('click', outsideClick);
+// document.addEventListener('click', ({target})=>{
+//   if (target.id==="registerbtn"){
+//       document.querySelector('#signUp').style.display='none !important'
+//       $('#secondmodalid').modal('show')
+//   }
+// })
 
-// //Function to open modal
-// function openModal() {
-//     modal.style.display = 'block';
-// }
+// $('#registerbtn').submit(function(e) {
+//   e.preventDefault();
+//     $('#signUp').modal('hide');
+//     show:false;
+//   });
 
+//   document.addEventListener('click', ({target})=>{
+//     if (target.id==="registerbtn"){
+//         $('#signUp').modal('hide')
+//         $('#secondmodalid').modal('show')
+//     }
+// })
 
 const uniData = []
 
@@ -71,21 +87,277 @@ schoolData()
 //library
 
 
-  let schools = [];
+  let schools = [] 
   let schoolsId = []
+  const programs = [{
+    id: "agriculture",
+    programname: "Agricultural Studies"
+},
+{
+    id: "resources",
+    programname: "Natural Resouces & Conservation Studies"
+},
+{
+    id: "architecture",
+    programname: "Architectural Studies"
+},
+{
+    id: "ethnic_cultural_gender",
+    programname: "Ethnic, Cultural, and Gender Studies"
+},
+{
+    id: "communication",
+    programname: "Communication & Journalism Studies"
+},
+{
+    id: "computer",
+    programname: "Computer Science and Related"
+},
+{
+    id: "education",
+    programname: "Education Studies"
+},
+{
+    id: "engineering",
+    programname: "Engineering Sciences"
+},
+{
+    id: "engineering_technology",
+    programname: "Engineering Technologies"
+},
+{
+    id: "language",
+    programname: "Language Studies"
+},
+{
+    id: "family_consumer_science",
+    programname: "Family Studies"
+},
+{
+    id: "english",
+    programname: "English Studies"
+},
+{
+    id: "humanities",
+    programname: "Humanities"
+},
+{
+    id: "biological",
+    programname: "Biological & Biomedical Sciences"
+},
+{
+    id: "mathematics",
+    programname: "Mathematics & Statistics"
+},
+{
+    id: "multidiscipline",
+    programname: "Multi/Interdisciplinary Studies"
+},
+{
+    id: "parks_recreation_fitness",
+    programname: "Parks, Recreation, and Fitness Studies"
+},
+{
+    id: "philosophy_religious",
+    programname: "Philosophy & Religious Studies"
+},
+{
+    id: "physical_science",
+    programname: "Physical Sciences"
+},
+{
+    id: "psychology",
+    programname: "Psychology"
+},
+{
+    id: "security_law_enforcement",
+    programname: "Protective Services Studies"
+},
+{
+    id: "public_administration_social_service",
+    programname: "Public Administration & Social Service Studies"
+},
+{
+    id: "social_science",
+    programname: "Social Sciences"
+},
+{
+    id: "transportation",
+    programname: "Transportation and Material Studies" 
+},
+{
+    id: "visual_performing",
+    programname: "Visual & Performing Arts" 
+},
+{
+    id: "health",
+    programname: "Public Health & Related Programs" 
+},
+{
+    id: "business_marketing",
+    programname: "Business, Management, Marketing, & Economics" 
+},
+{
+    id: "history",
+    programname: "History Studies" 
+},
+    
+]
+
+// const autocomplete = (inputField, searchArray, key) => {
+
+//     /*the autocomplete function takes two arguments,
+//     the text field element and an array of possible autocompleted values:*/
+//     let currentFocus
+//     /*execute a function when someone writes in the text field:*/
+//     inputField.addEventListener("input", e => {
+//         let list, item, val = e.target.value
+//         /*close any already open lists of autocompleted values*/
+//         closeAllLists()
+//         if (!val) { return false; }
+//         currentFocus = -1
+//         /*create a div element that will contain the items (values):*/
+//         list = document.createElement("div")
+//         list.setAttribute("id", e.target.id + "autocomplete-list")
+//         list.setAttribute("class", "autocomplete-items")
+//         /*append the DIV element as a child of the autocomplete container:*/
+//         e.target.parentNode.appendChild(list)
+//         /*for each item in the array...*/
+//         for (let i = 0; i < searchArray.length; i++) {
+//             let id = searchArray[i].id
+//             /*check if the item starts with the same letters as the text field value:*/
+//             if (searchArray[i][key].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+//                 /*create a div element for each matching element:*/
+//                 item = document.createElement("div")
+//                 item.setAttribute("id", id)
+//                 console.log(document.querySelector('#threeSchools').childElementCount)
+//                 if (document.querySelector('#threeSchools').childElementCount > 0) {
+//                     console.log(document.querySelector('#threeSchools').childNodes[0])
+
+//                     for (let j = 0; j < document.querySelector('#threeSchools').childElementCount; j++) {
+//                         if (document.querySelector('#threeSchools').childNodes[j].id === item.id) {
+//                             item.setAttribute("class", "disabled")
+//                         }
+//                     }
+
+//                 }
+//                 if (item.className === "disabled") {
+//                     item.innerHTML += searchArray[i][key]
+//                 } else {
+//                     /*make the matching letters bold:*/
+//                     item.innerHTML = "<strong>" + searchArray[i][key].substr(0, val.length) + "</strong>";
+//                     item.innerHTML += searchArray[i][key].substr(val.length)
+//                     /*insert a input field that will hold the current array item's value:*/
+//                     item.innerHTML += `<input type="hidden" value="${searchArray[i][key]}">`
+//                 }
 
 
+//                 /*execute a function when someone clicks on the item value (DIV element):*/
+//                 item.addEventListener("click", e => {
+//                     console.log(e.currentTarget.getElementsByTagName("input")[0])
+//                     /*insert the value for the autocomplete text field:*/
+//                     inputField.value = ''
+//                     //inputField.value = e.currentTarget.getElementsByTagName("input")[0];
+//                     selectedSchool = document.createElement("div")
+//                     selectedSchool.setAttribute("class", "selectedSchool")
+//                     selectedSchool.setAttribute("id", `${id}`)
+//                     selectedSchool.setAttribute("data-schoolI", `${e.currentTarget.getElementsByTagName("input")[0].value}`)
+//                     selectedSchool.innerHTML=`
+//                     <p>${e.currentTarget.getElementsByTagName("input")[0].value}</p>
+//                     <input type="image" class="img-fluid delete" id="delete${id}" data-schoolId="${id}" src="./assets/images/garbage.svg" width="50px auto" onclick=delete() >
 
-  const autocomplete = (inputField, searchArray, idArray) => {
+//                     `
+//                    // selectedSchool.textContent = e.currentTarget.getElementsByTagName("input")[0].value;
+                    
+//                     document.querySelector('#threeSchools').appendChild(selectedSchool)
+//                     //document.getElementById(`${e.currentTarget.getElementsByTagName("input")[0].value}`).setAttribute("class", "disabled")
+//                     //console.log(document.getElementById(`${e.currentTarget.getElementsByTagName("input")[0].value}`))
+
+//                     if (document.querySelector('#threeSchools').childElementCount === 3) {
+//                         inputField.disabled = true
+//                         inputField.placeholder = "Please remove a school to search"
+//                     }
+//                     /*close the list of autocompleted values,
+//                     (or any other open lists of autocompleted values:*/
+//                     closeAllLists();
+//                 });
+//                 //document.getElementById(`${e.currentTarget.getElementsByTagName("input")[0].value}`).setAttribute("class", "disabled")
+
+//                 list.appendChild(item);
+//             }
+//         }
+//     });
+//     /*execute a function presses a key on the keyboard:*/
+//     inputField.addEventListener("keydown", e => {
+//         let autoCompleteList = document.getElementById(e.target.id + "autocomplete-list");
+//         if (autoCompleteList) autoCompleteList = autoCompleteList.getElementsByTagName("div")
+//         if (e.keyCode == 40) {
+//             /*If the arrow DOWN key is pressed,
+//             increase the currentFocus variable:*/
+//             currentFocus++
+//             /*and and make the current item more visible:*/
+//             addActive(autoCompleteList)
+//         } else if (e.keyCode == 38) { //up
+//             /*If the arrow UP key is pressed,
+//             decrease the currentFocus variable:*/
+//             currentFocus--
+//             /*and and make the current item more visible:*/
+//             addActive(autoCompleteList)
+//         } else if (e.keyCode == 13) {
+//             /*If the ENTER key is pressed, prevent the form from being submitted,*/
+//             e.preventDefault()
+//             if (currentFocus > -1) {
+//                 /*and simulate a click on the "active" item:*/
+//                 if (autoCompleteList) list[currentFocus].click()
+//             }
+//         }
+//     });
+//     const addActive = (autoCompleteList) => {
+//         /*a function to classify an item as "active":*/
+//         if (!x) return false
+//         /*start by removing the "active" class on all items:*/
+//         removeActive(autoCompleteList)
+//         if (currentFocus >= autoCompleteList.length) currentFocus = 0
+//         if (currentFocus < 0) currentFocus = (autoCompleteList.length - 1)
+//         /*add class "autocomplete-active":*/
+//         autoCompleteList[currentFocus].classList.add("autocomplete-active")
+//     }
+//     const removeActive = (autoCompleteList) => {
+//         /*a function to remove the "active" class from all autocomplete items:*/
+//         for (let i = 0; i < list.length; i++) {
+//             autoCompleteList[i].classList.remove("autocomplete-active");
+//         }
+//     }
+//     const closeAllLists = (elmnt) => {
+//         /*close all autocomplete lists in the document,
+//         except the one passed as an argument:*/
+//         let autoCompleteList = document.getElementsByClassName("autocomplete-items");
+//         for (let i = 0; i < autoCompleteList.length; i++) {
+//             if (elmnt != autoCompleteList[i] && elmnt != inputField) {
+//                 autoCompleteList[i].parentNode.removeChild(autoCompleteList[i]);
+//             }
+//         }
+//     }
+
+//     /*execute a function when someone clicks in the document:*/
+//     document.addEventListener("click", e => {
+//         closeAllLists(e.target)
+//     });
+// }
+// autocomplete(document.getElementById("schools"), uniData, "school")
+
+
+const autocomplete = (inputField, searchArray, key) => {
+
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     let currentFocus
     /*execute a function when someone writes in the text field:*/
     inputField.addEventListener("input", e => {
-        let list, item, val = e.target.value
+        let list, item, val = e.target.value, inputArea= e.target.id
         /*close any already open lists of autocompleted values*/
         closeAllLists()
-        if (!val) { return false;}
+        if (!val) { return false; }
         currentFocus = -1
         /*create a div element that will contain the items (values):*/
         list = document.createElement("div")
@@ -95,32 +367,76 @@ schoolData()
         e.target.parentNode.appendChild(list)
         /*for each item in the array...*/
         for (let i = 0; i < searchArray.length; i++) {
-          /*check if the item starts with the same letters as the text field value:*/
-          if (searchArray[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-            /*create a div element for each matching element:*/
-            item = document.createElement("div")
-            /*make the matching letters bold:*/
-            item.innerHTML = "<strong>" + searchArray[i].substr(0, val.length) + "</strong>";
-            item.innerHTML += searchArray[i].substr(val.length)
-            /*insert a input field that will hold the current array item's value:*/
-            item.innerHTML += "<input type='hidden' value='" + searchArray[i] + "'>"
-            /*execute a function when someone clicks on the item value (DIV element):*/
-                item.addEventListener("click", e =>{
-                /*insert the value for the autocomplete text field:*/
-                inputField.value = e.target.getElementsByTagName("input")[0].value;
-                selectedSchool = document.createElement("p")
-                selectedSchool.innerHTML = e.target.getElementsByTagName("input")[0].value;
-                selectedSchool.setAttribute ("class", "selectedSchool")
-                selectedSchool.setAttribute ("id", e.target.getElementsByTagName("input")[0].value)
-                selectedSchool.setAttribute("data-schoolId", `${idArray[i]}`)
-                document.querySelector('#threeSchools').appendChild(selectedSchool)
+            let id = searchArray[i].id
+            /*check if the item starts with the same letters as the text field value:*/
+            if (searchArray[i][key].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                /*create a div element for each matching element:*/
+                item = document.createElement("div")
+                item.setAttribute("id", id)
+                console.log(document.querySelector('#threeSchools').childElementCount)
+                if (document.querySelector('#threeSchools').childElementCount > 0) {
+                    console.log(document.querySelector('#threeSchools').childNodes[0])
 
-                /*close the list of autocompleted values,
-                (or any other open lists of autocompleted values:*/
-                closeAllLists();
-            });
-            list.appendChild(item);
-          }
+                    for (let j = 0; j < document.querySelector('#threeSchools').childElementCount; j++) {
+                        if (document.querySelector('#threeSchools').childNodes[j].id === item.id) {
+                            item.setAttribute("class", "disabled")
+                        }
+                    }
+
+                }
+                if (item.className === "disabled") {
+                    item.innerHTML += searchArray[i][key]
+                } else {
+                    /*make the matching letters bold:*/
+                    item.innerHTML = "<strong>" + searchArray[i][key].substr(0, val.length) + "</strong>";
+                    item.innerHTML += searchArray[i][key].substr(val.length)
+                    /*insert a input field that will hold the current array item's value:*/
+                    item.innerHTML += `<input type="hidden" value="${searchArray[i][key]}">`
+                }
+
+
+                /*execute a function when someone clicks on the item value (DIV element):*/
+                item.addEventListener("click", e => {
+                    console.log(e.currentTarget.getElementsByTagName("input")[0])
+                    /*insert the value for the autocomplete text field:*/
+                    inputField.value = ''
+                    //inputField.value = e.currentTarget.getElementsByTagName("input")[0];
+
+                    if (inputArea==="schools"){
+                    selectedSchool = document.createElement("div")
+                    selectedSchool.setAttribute("class", "selectedSchool")
+                    selectedSchool.setAttribute("id", `${id}`)
+                    selectedSchool.setAttribute("data-schoolname", `${e.currentTarget.getElementsByTagName("input")[0].value}`)
+                    selectedSchool.setAttribute("data-schoolidnum", `${id}`)
+                    selectedSchool.innerHTML = `
+                    <p>${e.currentTarget.getElementsByTagName("input")[0].value}</p>
+                    <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage.svg" width="50px auto">
+                    `
+                    // selectedSchool.textContent = e.currentTarget.getElementsByTagName("input")[0].value;
+
+                    document.querySelector('#threeSchools').appendChild(selectedSchool)
+                    //document.getElementById(`${e.currentTarget.getElementsByTagName("input")[0].value}`).setAttribute("class", "disabled")
+                    //console.log(document.getElementById(`${e.currentTarget.getElementsByTagName("input")[0].value}`))
+
+                    if (document.querySelector('#threeSchools').childElementCount === 3) {
+                        inputField.disabled = true
+                        inputField.placeholder = "Please remove a school to search"
+                    }
+                }else if (inputArea==="majors"){
+                    document.querySelector('#selectedProgram').setAttribute('data-programid',`${id}`)
+                    document.querySelector('#selectedProgram').setAttribute('data-programname',`${e.currentTarget.getElementsByTagName("input")[0].value}`)
+                    document.querySelector('#selectedProgram').innerHTML=`
+                    <p>${e.currentTarget.getElementsByTagName("input")[0].value}</p>
+                    `
+                }
+                    /*close the list of autocompleted values,
+                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                //document.getElementById(`${e.currentTarget.getElementsByTagName("input")[0].value}`).setAttribute("class", "disabled")
+
+                list.appendChild(item);
+            }
         }
     });
     /*execute a function presses a key on the keyboard:*/
@@ -128,58 +444,75 @@ schoolData()
         let autoCompleteList = document.getElementById(e.target.id + "autocomplete-list");
         if (autoCompleteList) autoCompleteList = autoCompleteList.getElementsByTagName("div")
         if (e.keyCode == 40) {
-          /*If the arrow DOWN key is pressed,
-          increase the currentFocus variable:*/
-          currentFocus++
-          /*and and make the current item more visible:*/
-          addActive(autoCompleteList)
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++
+            /*and and make the current item more visible:*/
+            addActive(autoCompleteList)
         } else if (e.keyCode == 38) { //up
-          /*If the arrow UP key is pressed,
-          decrease the currentFocus variable:*/
-          currentFocus--
-          /*and and make the current item more visible:*/
-          addActive(autoCompleteList)
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--
+            /*and and make the current item more visible:*/
+            addActive(autoCompleteList)
         } else if (e.keyCode == 13) {
-          /*If the ENTER key is pressed, prevent the form from being submitted,*/
-          e.preventDefault()
-          if (currentFocus > -1) {
-            /*and simulate a click on the "active" item:*/
-            if (autoCompleteList) list[currentFocus].click()
-          }
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault()
+            if (currentFocus > -1) {
+                /*and simulate a click on the "active" item:*/
+                if (autoCompleteList) list[currentFocus].click()
+            }
         }
     });
     const addActive = (autoCompleteList) => {
-      /*a function to classify an item as "active":*/
-      if (!x) return false
-      /*start by removing the "active" class on all items:*/
-      removeActive(autoCompleteList)
-      if (currentFocus >= autoCompleteList.length) currentFocus = 0
-      if (currentFocus < 0) currentFocus = (autoCompleteList.length - 1)
-      /*add class "autocomplete-active":*/
-      autoCompleteList[currentFocus].classList.add("autocomplete-active")
+        /*a function to classify an item as "active":*/
+        if (!autoCompleteList) return false
+        /*start by removing the "active" class on all items:*/
+        removeActive(autoCompleteList)
+        if (currentFocus >= autoCompleteList.length) currentFocus = 0
+        if (currentFocus < 0) currentFocus = (autoCompleteList.length - 1)
+        /*add class "autocomplete-active":*/
+        autoCompleteList[currentFocus].classList.add("autocomplete-active")
     }
     const removeActive = (autoCompleteList) => {
-      /*a function to remove the "active" class from all autocomplete items:*/
-      for (let i = 0; i < list.length; i++) {
-        autoCompleteList[i].classList.remove("autocomplete-active");
-      }
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (let i = 0; i < autoCompleteList.length; i++) {
+            autoCompleteList[i].classList.remove("autocomplete-active");
+        }
     }
     const closeAllLists = (elmnt) => {
-      /*close all autocomplete lists in the document,
-      except the one passed as an argument:*/
-      let autoCompleteList = document.getElementsByClassName("autocomplete-items");
-      for (let i = 0; i < autoCompleteList.length; i++) {
-        if (elmnt != autoCompleteList[i] && elmnt != inputField) {
-            autoCompleteList[i].parentNode.removeChild(autoCompleteList[i]);
-      }
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        let autoCompleteList = document.getElementsByClassName("autocomplete-items");
+        for (let i = 0; i < autoCompleteList.length; i++) {
+            if (elmnt != autoCompleteList[i] && elmnt != inputField) {
+                autoCompleteList[i].parentNode.removeChild(autoCompleteList[i]);
+            }
+        }
     }
-  }
 
-  /*execute a function when someone clicks in the document:*/
-  document.addEventListener("click", e => {
-      closeAllLists(e.target)
-  });
-  }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", e => {
+        closeAllLists(e.target)
+    });
+}
+
+document.addEventListener('click', ({ target }) => {
 
 
-  autocomplete(document.getElementById("myInput"), schools, schoolsId);
+    if (target.id === `delete${target.dataset.schoolid}`) {
+        console.log(document.querySelector(`#delete${target.dataset.schoolid}`))
+        let element = document.getElementById(document.querySelector(`#delete${target.dataset.schoolid}`).dataset.schoolid)
+        console.log(element)
+        element.parentNode.removeChild(element);
+
+        if (document.querySelector('#threeSchools').childElementCount < 3) {
+            document.getElementById("schools").disabled = false
+            document.getElementById("schools").placeholder = "Schools"
+        }
+    }
+})
+
+//console.log(uniData[0].school)
+autocomplete(document.getElementById("schools"), uniData, "school")
+autocomplete(document.getElementById("majors"), programs, "programname")
