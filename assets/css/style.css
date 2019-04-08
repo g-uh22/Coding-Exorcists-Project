@@ -44,9 +44,13 @@ body {
 
 /* Fixed width & padding  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
+=======
+
+>>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 /* .modal-dialog-centered {
 border-radius: 500px;
 max-width: 400px;
@@ -70,6 +74,7 @@ color: white;
 
 .btn {
 <<<<<<< HEAD
+<<<<<<< HEAD
 border: 10px;
 font-family: 'Poppins', sans-serif;
 
@@ -77,6 +82,10 @@ font-family: 'Poppins', sans-serif;
   border: 10px;
   font-family: 'Poppins', sans-serif;
 >>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
+=======
+  border: 10px;
+  font-family: 'Poppins', sans-serif;
+>>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 }
 
 .form-control {
@@ -91,7 +100,10 @@ font-family: 'Poppins', sans-serif;
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 /* .container {
   border-radius: 5px;
   background-color: transparent;
@@ -153,7 +165,10 @@ input[type=submit] {
   color: #fff;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 
 >>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
 .autocomplete-items {
