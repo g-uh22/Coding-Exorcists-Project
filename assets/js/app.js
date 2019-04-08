@@ -183,7 +183,7 @@ console.log(results)
 
                 })
             }
-
+       for (let i = 0; i < 32; i++) {
         schools.push(results[i]["school.name"])
         schoolsId.push(results[i].id)
       }
