@@ -190,10 +190,6 @@ console.log(results)
 
     })
     .catch(e => console.error(e))
-
-
-        })
-        .catch(e => console.error(e))
 }
 
 schoolData()
