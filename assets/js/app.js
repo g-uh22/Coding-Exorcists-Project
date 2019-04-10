@@ -270,10 +270,10 @@ const weather = (lat, lon) => {
 
             for (j = 0; j < storeWeather.length; j++) {
 
-                if (document.querySelector('#dCard0').childElementCount >= 10) {
-                    if (document.querySelector('#dCard1').childElementCount >= 10) {
+                if (document.querySelector('#dWeather0').childElementCount >= 10) {
+                    if (document.querySelector('#dWeather1').childElementCount >= 10) {
 
-                        if (document.querySelector('#dCard2').childElementCount >= 10) {
+                        if (document.querySelector('#dWeather2').childElementCount >= 10) {
 
                         } else {
 
