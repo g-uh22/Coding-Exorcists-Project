@@ -255,6 +255,9 @@ const weather = (lat, lon) => {
             let weatherIcon = []
             let iconElement
             let tempElement
+            let mIconElement
+            let mTempElement
+            console.log(mIconElement)
             for (i = 0; i < list.length; i++) {
 
                 if (list[i].dt_txt.includes("15:00:00")) {
@@ -276,83 +279,53 @@ const weather = (lat, lon) => {
 
                             iconElement = document.createElement('div')
                             tempElement = document.createElement('div')
+                            mIconElement = document.createElement('div')
+                            mTempElement = document.createElement('div')
                             iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                             tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                            document.querySelector('#dCard2').append(iconElement)
-                            document.querySelector('#dCard2').append(tempElement)
-                            // document.querySelector('#mCard2').append(iconElement)
-                            // document.querySelector('#mCard2').append(tempElement)
+                            mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
+                            mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
+                            document.querySelector('#dWeather2').append(iconElement)
+                            document.querySelector('#dWeather2').append(tempElement)
+                            document.querySelector('#mWeather2').append(mIconElement)
+                            document.querySelector('#mWeather2').append(mTempElement)
 
                         }
 
                     } else {
+
                         iconElement = document.createElement('div')
                         tempElement = document.createElement('div')
+                        mIconElement = document.createElement('div')
+                        mTempElement = document.createElement('div')
                         iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                         tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                        document.querySelector('#dCard1').append(iconElement)
-                        document.querySelector('#dCard1').append(tempElement)
-                        // document.querySelector('#mCard1').append(iconElement)
-                        // document.querySelector('#mCard1').append(tempElement)
+                        mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
+                        mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
+                        document.querySelector('#dWeather1').append(iconElement)
+                        document.querySelector('#dWeather1').append(tempElement)
+                        document.querySelector('#mWeather1').append(mIconElement)
+                        document.querySelector('#mWeather1').append(mTempElement)
+                       
                     }
                 } else {
+
                     iconElement = document.createElement('div')
                     tempElement = document.createElement('div')
+                    mIconElement = document.createElement('div')
+                    mTempElement = document.createElement('div')
                     iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                     tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                    document.querySelector('#dCard0').append(iconElement)
-                    document.querySelector('#dCard0').append(tempElement)
-                    // document.querySelector('#mCard0').append(iconElement)
-                    // document.querySelector('#mCard0').append(tempElement)
+                    mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
+                    mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
+                    document.querySelector('#dWeather0').append(iconElement)
+                    document.querySelector('#dWeather0').append(tempElement)
+                    document.querySelector('#mWeather0').append(mIconElement)
+                    document.querySelector('#mWeather0').append(mTempElement)
                 }
             }
-            for (j = 0; j < storeWeather.length; j++) {
-
-                if (document.querySelector('#mCard0').childElementCount >= 10) {
-                    if (document.querySelector('#mCard1').childElementCount >= 10) {
-
-                        if (document.querySelector('#mCard2').childElementCount >= 10) {
-
-                        } else {
-
-                            iconElement = document.createElement('div')
-                            tempElement = document.createElement('div')
-                            iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                            tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                            document.querySelector('#mCard2').append(iconElement)
-                            document.querySelector('#mCard2').append(tempElement)
-                            // document.querySelector('#mCard2').append(iconElement)
-                            // document.querySelector('#mCard2').append(tempElement)
-
-                        }
-
-                    } else {
-                        iconElement = document.createElement('div')
-                        tempElement = document.createElement('div')
-                        iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                        tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                        document.querySelector('#mCard1').append(iconElement)
-                        document.querySelector('#mCard1').append(tempElement)
-                        // document.querySelector('#mCard1').append(iconElement)
-                        // document.querySelector('#mCard1').append(tempElement)
-                    }
-                } else {
-                    iconElement = document.createElement('div')
-                    tempElement = document.createElement('div')
-                    iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                    tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                    document.querySelector('#mCard0').append(iconElement)
-                    document.querySelector('#mCard0').append(tempElement)
-                    // document.querySelector('#mCard0').append(iconElement)
-                    // document.querySelector('#mCard0').append(tempElement)
-                }
-            }
-            // console.log(document.querySelectorAll('.dForecast'))
-            // console.log(document.querySelectorAll('.mForecast'))
-            // console.log(storeWeather)
-            // console.log(weatherIcon)
-
         })
+
 }
 
 document.addEventListener('click', e => {
