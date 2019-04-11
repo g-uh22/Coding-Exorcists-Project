@@ -270,58 +270,84 @@ const weather = (lat, lon) => {
 
             for (j = 0; j < storeWeather.length; j++) {
 
-                if (document.querySelector('#dWeather0').childElementCount >= 10) {
-                    if (document.querySelector('#dWeather1').childElementCount >= 10) {
-
-                        if (document.querySelector('#dWeather2').childElementCount >= 10) {
+                if (document.querySelector('#dWeather0').childElementCount >= 5) {
+                    if (document.querySelector('#dWeather1').childElementCount >= 5) {
+                        if (document.querySelector('#dWeather2').childElementCount >= 5) {
 
                         } else {
 
+                            const dDayContainer = document.createElement('div')
+                            const mDayContainer = document.createElement('div')
+                            dDayContainer.setAttribute("class", "dayContainer")
+                            mDayContainer.setAttribute("class", "dayContainer")
                             iconElement = document.createElement('div')
+                            iconElement.setAttribute("class", "scrollContent")
                             tempElement = document.createElement('div')
+                            tempElement.setAttribute("class", "scrollContent")
                             mIconElement = document.createElement('div')
+                            mIconElement.setAttribute("class", "scrollContent")
                             mTempElement = document.createElement('div')
+                            mTempElement.setAttribute("class", "scrollContent")
                             iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                             tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
                             mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                             mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                            document.querySelector('#dWeather2').append(iconElement)
-                            document.querySelector('#dWeather2').append(tempElement)
-                            document.querySelector('#mWeather2').append(mIconElement)
-                            document.querySelector('#mWeather2').append(mTempElement)
+                            dDayContainer.append(iconElement)
+                            dDayContainer.append(tempElement)
+                            mDayContainer.append(mIconElement)
+                            mDayContainer.append(mTempElement)
+                            document.querySelector('#dWeather2').append(dDayContainer)
+                            document.querySelector('#mWeather2').append(mDayContainer)
 
                         }
 
                     } else {
-
+                        const dDayContainer = document.createElement('div')
+                        const mDayContainer = document.createElement('div')
+                        dDayContainer.setAttribute("class", "dayContainer")
+                        mDayContainer.setAttribute("class", "dayContainer")
                         iconElement = document.createElement('div')
+                        iconElement.setAttribute("class", "scrollContent")
                         tempElement = document.createElement('div')
+                        tempElement.setAttribute("class", "scrollContent")
                         mIconElement = document.createElement('div')
+                        mIconElement.setAttribute("class", "scrollContent")
                         mTempElement = document.createElement('div')
+                        mTempElement.setAttribute("class", "scrollContent")
                         iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                         tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
                         mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                         mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                        document.querySelector('#dWeather1').append(iconElement)
-                        document.querySelector('#dWeather1').append(tempElement)
-                        document.querySelector('#mWeather1').append(mIconElement)
-                        document.querySelector('#mWeather1').append(mTempElement)
-                       
+                        dDayContainer.append(iconElement)
+                        dDayContainer.append(tempElement)
+                        mDayContainer.append(mIconElement)
+                        mDayContainer.append(mTempElement)
+                        document.querySelector('#dWeather1').append(dDayContainer)
+                        document.querySelector('#mWeather1').append(mDayContainer)
                     }
                 } else {
-
+                    const dDayContainer = document.createElement('div')
+                    const mDayContainer = document.createElement('div')
+                    dDayContainer.setAttribute("class","dayContainer")
+                    mDayContainer.setAttribute("class","dayContainer")
                     iconElement = document.createElement('div')
+                    iconElement.setAttribute("class", "scrollContent")
                     tempElement = document.createElement('div')
+                    tempElement.setAttribute("class", "scrollContent")
                     mIconElement = document.createElement('div')
+                    mIconElement.setAttribute("class", "scrollContent")
                     mTempElement = document.createElement('div')
+                    mTempElement.setAttribute("class", "scrollContent")
                     iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                     tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
                     mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
                     mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                    document.querySelector('#dWeather0').append(iconElement)
-                    document.querySelector('#dWeather0').append(tempElement)
-                    document.querySelector('#mWeather0').append(mIconElement)
-                    document.querySelector('#mWeather0').append(mTempElement)
+                    dDayContainer.append(iconElement)
+                    dDayContainer.append(tempElement)
+                    mDayContainer.append(mIconElement)
+                    mDayContainer.append(mTempElement)
+                    document.querySelector('#dWeather0').append(dDayContainer)
+                    document.querySelector('#mWeather0').append(mDayContainer)
                 }
             }
         })
