@@ -36,6 +36,7 @@ body {
   margin-right: auto;
   opacity: 1;
 }
+
 .logoBackground {
   background-color: white;
   height: 320px;
@@ -52,13 +53,14 @@ padding: 10px;
 } */
 
 .modal-header {
-background-color:lightskyblue;
+  background-color: lightskyblue;
 }
 
 .modal-footer {
-background-color:lightblue;
-color: white;
+  background-color: lightblue;
+  color: white;
 }
+
 .modal-title {
   font-family: 'Poppins', sans-serif;
 }
@@ -85,7 +87,6 @@ color: white;
   text-align: center;
 } */
 
-
 /* .autocomplete {
   margin: 0 auto;
   text-align: center;
@@ -102,10 +103,12 @@ font-family: 'Muli', sans-serif; */
   box-sizing: border-box;
 }
 
-
-
 /* HAMZA */
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font: 16px Arial;
 }
@@ -164,13 +167,11 @@ input[type=submit] {
 
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
+  background-color: DodgerBlue !important;
+  color: #ffffff;
 }
 
-
-.disabled{
+.disabled {
   pointer-events: none;
   color: gray;
   background-color: rgb(165, 160, 160);
@@ -181,75 +182,32 @@ input[type=submit] {
   color: #ffffff;
 } */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.scrollContent {
+  flex: 0 0 auto;
+  margin: 5px;
+  /* display: inline-block; */
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.info {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
 
 /* Bryan's Card CSS */
+
 /* CSS for the Cards */
+
 @media (max-width: 768px) {
   #row1 {
     display: none;
@@ -301,4 +259,13 @@ input[type=submit] {
     display: block;
     visibility: visible;
   }
+}
+
+.dayContainer {
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+}
+
+.card-title {
+  font-family: 'Muli', sans-serif;
 }
