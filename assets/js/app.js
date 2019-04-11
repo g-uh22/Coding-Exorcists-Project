@@ -350,7 +350,7 @@ const weather = (lat, lon) => {
                 }
             }
         })
-
+        .catch(e => console.error(e))
 }
 
 document.addEventListener('click', e => {
