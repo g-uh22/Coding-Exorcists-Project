@@ -102,6 +102,7 @@ body {
   margin-right: auto;
   content: center top;
 }
+
 .logoBackground {
   /* background-color: rgb(255, 179, 37); */
   height: 210px;
@@ -116,6 +117,7 @@ body {
   background-color: rgba(0, 0, 0, 0.703);
 }
 
+
 /* Fixed width & padding  */
 /* .modal-dialog-centered {
 border-radius: 500px;
@@ -127,19 +129,20 @@ padding: 10px;
 } */
 
 .modal-header {
-background-color:lightskyblue;
+  background-color: lightskyblue;
 }
 
 .modal-footer {
-background-color:lightblue;
-color: white;
+  background-color: lightblue;
+  color: white;
 }
+
 .modal-title {
   font-family: 'Poppins', sans-serif;
 }
 
 .btn {
-    border: 10px;
+  border: 10px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -153,15 +156,12 @@ color: white;
   font-family: 'Poppins', sans-serif;
 }
 
-
 /* fonts */
 
 /* font-family: 'Bree Serif', serif;
 font-family: 'Patua One', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Muli', sans-serif; */
-
-
 
 /* HAMZA */
 /* * { box-sizing: border-box; } */
@@ -223,13 +223,11 @@ input[type=submit] {
 
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
+  background-color: DodgerBlue !important;
+  color: #ffffff;
 }
 
-
-.disabled{
+.disabled {
   pointer-events: none;
   color: gray;
   background-color: rgb(165, 160, 160);
@@ -240,9 +238,32 @@ input[type=submit] {
   color: #ffffff;
 } */
 
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.scrollContent {
+  flex: 0 0 auto;
+  margin: 5px;
+  /* display: inline-block; */
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.info {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
 
 /* Bryan's Card CSS */
+
 /* CSS for the Cards */
+
 @media (max-width: 768px) {
   #row1 {
     display: none;
@@ -294,4 +315,13 @@ input[type=submit] {
     display: block;
     visibility: visible;
   }
+}
+
+.dayContainer {
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+}
+
+.card-title {
+  font-family: 'Muli', sans-serif;
 }
