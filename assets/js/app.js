@@ -257,7 +257,6 @@ const weather = (lat, lon) => {
             let tempElement
             let mIconElement
             let mTempElement
-            console.log(mIconElement)
             for (i = 0; i < list.length; i++) {
 
                 if (list[i].dt_txt.includes("15:00:00")) {

@@ -260,6 +260,12 @@ input[type=submit] {
     visibility: visible;
   }
 }
-.dayContainer{
+
+.dayContainer {
   text-align: center;
+  font-family: 'Muli', sans-serif;
+}
+
+.card-title {
+  font-family: 'Muli', sans-serif;
 }
