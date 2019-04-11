@@ -2,71 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css"->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Muli|Patua+One|Poppins" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css" ->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Muli|Patua+One|Poppins" rel="stylesheet">
 
-    <title>College Match</title>
+  <title>College Match</title>
 </head>
 
 <body>
-   
-  <div class="logoBackground">
-    <br>
-  <img src="./assets/images/BLUE College Match Logo.png" alt="CollegeMatch" class="logo">
-</div>
- 
-  <br>
-  <br>
-  <br>
+  <div class="grid-container">
+
+<div class="logoBackground">
+<img src="./assets/images/College Match Logo White.png" alt="CollegeMatch" id="backdrop" class="logo">
+  </div>
+
   <!--Make sure the form has the autocomplete function switched off:-->
-  <!-- <div class="container">
-      <div class="row">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-8">
-            <form autocomplete="off" action="/action_page.php">
-              <div id="parent" class="autocomplete" style="display: inline-block">
-                <input id="programs" type="text" name="myPrograms" placeholder="Programs">
+  <div id="beginSearch">
+    
+      <form autocomplete="off" action="/action_page.php">
+        <!-- <div class="col-sm-4 col-sm-offset-2"> -->
+          <div class="has-search">
+            <div class="autocomplete" style="width:300px;">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input id="majors" class="form-control" type="text" name="myInput" placeholder="Programs">
+              <div id="selectedProgram"></div>
+            </div>
+          </div>
+        <!-- </div> -->
+        <!-- <div class="col-sm-4 col-sm-offset-2"> -->
+          <div class="has-search">
+            <div class="autocomplete" style="width:300px;">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input id="schools" class="form-control" type="text" name="myInput" placeholder="Schools">
               </div>
-              <div id="child" class="autocomplete" style="display: inline-block">
-                <input id="schools" type="text" name="mySchools" placeholder="Schools">
-              </div>
-            </form>
-        </div>
-        <div class="col-md-2">
-        </div>
-      </div>
-    </div> -->
-
-  <!-- Search Fields -->
-    <form autocomplete="off" action="/action_page.php">
-      <div class="autocomplete centered" style="width:300px;">
-        <input id="majors" type="text" name="myInput" placeholder="Programs">
-      </div>
-      <br>
-      <div class="autocomplete" style="width:300px;">
-        <input id="schools" type="text" name="myInput" placeholder="Schools">
-      </div>
-      <input type="submit">
-    </form>
-  
-
-    <div id="selectedProgram"></div>
-    <div id="threeSchools"></div>
-    <button type="button" id="genCards">Generate Data</button>
-  
+              <div id="threeSchools">
+              <button type="submit" id="genCards">Go</button></div>
+      </form>
+    <!-- </div> -->
+  </div>
+  </div>
+  </div>
+  </div>
 
 
-
-
-
-
-  <!-- Registration Modal -->
+<!-- Registration Modal -->
   <div id="signUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -103,7 +88,7 @@
     </div>
   </div>
 
-<!--  Bryan's Card HTML  -->
+  <!--  Bryan's Card HTML  -->
   <!-- Card HTML -->
   <div class="container-fluid">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -205,16 +190,20 @@
       </a>
     </div>
   </div>
-  
-  
-  
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="./assets/js/app.js"></script>
+
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/app.js"></script>
 
 </body>
 

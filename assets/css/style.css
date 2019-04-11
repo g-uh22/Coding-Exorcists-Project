@@ -1,6 +1,7 @@
 body {
-  background-image: url('../images/kelli-tungay-324329-unsplash.jpg');
-  height: 100%;
+  background-image: url('../images/study.png');
+  /* background: linear-gradient(110deg,lightskyblue 60%, lightblue 60%); */
+  height: auto;
   width: auto;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -11,46 +12,111 @@ body {
   background-attachment: fixed;
 }
 
-/* #parent {
-  float: left;
-}
-
-#child {
-  float: right;
-  margin-left: 10px;
+/* .grid-container {
+  display: grid;
+  grid-gap: 50px;
 } */
 
-#threeSchools {
-  background-color: lightblue;
-  width: 450px;
-  height: auto;
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+.has-search {
   margin: 0 auto;
+  /* margin-top: 50px;
+  margin-bottom: 25px; */
+  /* width: 600px; */
+}
+
+#selectedProgram { 
+  background-color:#17141d; 
+  box-shadow: -1rem 0 3rem #000; 
+  color: white; 
+  padding: 10px; 
+  height: auto; 
+  width: 200px; 
+  align-items: center; 
+  margin: 0 auto; 
+  margin-top: 25px; 
+  margin-bottom: 25px; 
+  border-radius: 10px; 
+  font-family: 'muli'sans-serif; 
+  font-weight: bold; 
   text-align: center;
 }
 
+#threeSchools {
+  background-color:#17141dae;
+  box-shadow: -1rem 0 3rem #000;
+  color: white;
+  padding: 10px;
+  height: auto;
+  width: 310px;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  font-family: 'muli' sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+#genCards {
+  width: 50px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  float: right;
+}
+
+/* .right {
+  margin: 0 auto;
+  text-align: center;
+  margin-left: 110px;
+  margin-right: 20px;
+  margin-bottom: 25px;
+  width: 500px;
+} */
+
 .logo {
-  height: 300px;
-  width: 350px;
+  min-height:100px;
+  min-width: 100px;
+  height: auto;
+  width: 180px;
   display: block;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  opacity: 1;
+  content: center top;
 }
 .logoBackground {
-  background-color: white;
-  height: 320px;
-  opacity: 0.95;
+  /* background-color: rgb(255, 179, 37); */
+  height: 210px;
+  width: 195px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: rgba(0, 0, 0, 0.703);
 }
 
 /* Fixed width & padding  */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
-=======
-
->>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 /* .modal-dialog-centered {
 border-radius: 500px;
 max-width: 400px;
@@ -73,19 +139,8 @@ color: white;
 }
 
 .btn {
-<<<<<<< HEAD
-<<<<<<< HEAD
-border: 10px;
-font-family: 'Poppins', sans-serif;
-
-=======
-  border: 10px;
+    border: 10px;
   font-family: 'Poppins', sans-serif;
->>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
-=======
-  border: 10px;
-  font-family: 'Poppins', sans-serif;
->>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 }
 
 .form-control {
@@ -99,25 +154,6 @@ font-family: 'Poppins', sans-serif;
 }
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
-/* .container {
-  border-radius: 5px;
-  background-color: transparent;
-  padding: 20px;
-  text-align: center;
-} */
-
-
-/* .autocomplete {
-  margin: 0 auto;
-  text-align: center;
-} */
-
->>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
 /* fonts */
 
 /* font-family: 'Bree Serif', serif;
@@ -125,14 +161,10 @@ font-family: 'Patua One', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Muli', sans-serif; */
 
-* {
-  box-sizing: border-box;
-}
-
 
 
 /* HAMZA */
-* { box-sizing: border-box; }
+/* * { box-sizing: border-box; } */
 body {
   font: 16px Arial;
 }
@@ -164,13 +196,7 @@ input[type=submit] {
   background-color: DodgerBlue;
   color: #fff;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 826b7649fd8edcff9c682b2ea8a9df69a9511db4
 
->>>>>>> e32228002e33a1380bc8415544ea11f20af9b175
 .autocomplete-items {
   position: absolute;
   border: 1px solid #d4d4d4;
@@ -213,72 +239,6 @@ input[type=submit] {
 /*   background-color: DodgerBlue !important;
   color: #ffffff;
 } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Bryan's Card CSS */
