@@ -443,7 +443,7 @@ const autocomplete = (inputField, searchArray, key) => {
                         selectedSchool.setAttribute("data-schoolidnum", `${id}`)
                         selectedSchool.innerHTML = `
                     <p>${e.currentTarget.getElementsByTagName("input")[0].value}</p>
-                    <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage.svg" width="50px auto">
+                    <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage_white.svg" width="40px auto">
                     `
                         // selectedSchool.textContent = e.currentTarget.getElementsByTagName("input")[0].value;
 
