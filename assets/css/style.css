@@ -32,6 +32,7 @@ body {
   pointer-events: none;
   color: #aaa;
 }
+
 .has-search {
   margin: 0 auto;
   /* margin-top: 50px;
@@ -39,25 +40,25 @@ body {
   /* width: 600px; */
 }
 
-#selectedProgram { 
-  background-color:#17141d; 
-  box-shadow: -1rem 0 3rem #000; 
-  color: white; 
-  padding: 10px; 
-  height: auto; 
-  width: 200px; 
-  align-items: center; 
-  margin: 0 auto; 
-  margin-top: 25px; 
-  margin-bottom: 25px; 
-  border-radius: 10px; 
-  font-family: 'muli'sans-serif; 
-  font-weight: bold; 
+#selectedProgram {
+  background-color: #17141d;
+  box-shadow: -1rem 0 3rem #000;
+  color: white;
+  padding: 10px;
+  height: auto;
+  width: 200px;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  font-family: 'muli'sans-serif;
+  font-weight: bold;
   text-align: center;
 }
 
 #threeSchools {
-  background-color:#17141dae;
+  background-color: #17141dae;
   box-shadow: -1rem 0 3rem #000;
   color: white;
   padding: 10px;
@@ -92,7 +93,7 @@ body {
 } */
 
 .logo {
-  min-height:100px;
+  min-height: 100px;
   min-width: 100px;
   height: auto;
   width: 180px;
@@ -117,9 +118,8 @@ body {
   background-color: rgba(0, 0, 0, 0.703);
 }
 
-
-
 /* Fixed width & padding  */
+
 /* .modal-dialog-centered {
 border-radius: 500px;
 max-width: 400px;
@@ -165,7 +165,9 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Muli', sans-serif; */
 
 /* HAMZA */
+
 /* * { box-sizing: border-box; } */
+
 body {
   font: 16px Arial;
 }
@@ -263,7 +265,8 @@ input[type=submit] {
 
 /* Bryan's Card CSS */
 
-/* CSS for the Cards */
+/* CSS for the Cards
+A lot of help from https://codepen.io/kreigd/pen/ybYNoN */
 
 @media (max-width: 768px) {
   #row1 {
@@ -317,6 +320,7 @@ input[type=submit] {
     visibility: visible;
   }
 }
+
 .dayContainer {
   text-align: center;
   font-family: 'Muli', sans-serif;
@@ -327,29 +331,34 @@ input[type=submit] {
 }
 
 /* styling for yelp */
+
 /* https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
+
 /* scrolling styling */
+
 .scrolling-wrapper {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch !important;
 }
-  .scrollContent {
-    flex: 0 0 auto;
-    margin: 5px;
-    /* display: inline-block; */
-  }
 
-  .scrolling-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-  .info{
-    word-wrap: break-word;
-    white-space: pre-wrap;
-  }
+.scrollContent {
+  flex: 0 0 auto;
+  margin: 5px;
+  /* display: inline-block; */
+}
 
-  .sectionTitle{
-    justify-content: center;
-    align-items: center;
-  }
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.info {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.sectionTitle {
+  justify-content: center;
+  align-items: center;
+}
