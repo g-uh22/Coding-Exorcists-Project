@@ -5,49 +5,11 @@ $(document).ready(function () {
 });
 
 
-// //Get Modal Element
-// const modal = document.getElementById('registerModal');
-// //open modal button
-// const modalBtn = document.getElementById('modalBtn');
-// //Close Button
-// const closebtn = document.getElementsByClassName('closebtn')
-
-// //Listen for open click
-// modalBtn.addEventListener('click', openModal);
-// //Listen for close click
-// modalBtn.addEventListener('click', closeModal);
-// //Listen for outside Click
-// modalBtn.addEventListener('click', outsideClick);
-
-// //Function to open modal
-// function openModal() {
-//     modal.style.display = 'block';
-// }
-
-
 $("#registerbtn").on("click", e => {
     e.preventDefault();
     $('#signUp').modal('hide')
 });
 
-
-// $('#registerbtn').submit(function(e) {
-//     e.preventDefault();
-//     // Coding
-//     $('#signUp').modal('toggle'); //or  $('#IDModal').modal('hide');
-//     return false;
-// });
-
-
-// $("#registerbtn").on("click", function(e) {
-// $("#myModal").removeClass("in");
-// $(".modal-backdrop").remove();
-// $('body').removeClass('modal-open');
-// $('body').css('padding-right', '');
-// $("#myModal").hide();
-//   })
-
-//latest.academics.program.bachelors.
 
 const programs = [{
     id: "agriculture",
@@ -172,7 +134,6 @@ const schoolData = () => {
     fetch(`https://api.data.gov/ed/collegescorecard/v1/schools?id=110635,110644,110653,110662,445188,110671,110680,110705,110714,111188,110486,441937,110538,110547,110574,110556,110565,110583,110592,409698,110608,110617,110510,366711,110495,110422,110529,123572,122755,122409,115755,122597&_fields=location.lat,location.lon,id,school.name,school.city,school.zip,school.locale,school.minority_serving.hispanic,school.state_fips,latest.admissions.admission_rate.overall,latest.student.size,latest.academics.program_percentage.agriculture,latest.academics.program_percentage.resources,latest.academics.program_percentage.architecture,latest.academics.program_percentage.ethnic_cultural_gender,latest.academics.program_percentage.communication,latest.academics.program_percentage.computer,latest.academics.program_percentage.education,latest.academics.program_percentage.engineering,latest.academics.program_percentage.engineering_technology,latest.academics.program_percentage.language,latest.academics.program_percentage.family_consumer_science,latest.academics.program_percentage.english,latest.academics.program_percentage.humanities,latest.academics.program_percentage.biological,latest.academics.program_percentage.mathematics,latest.academics.program_percentage.multidiscipline,latest.academics.program_percentage.parks_recreation_fitness,latest.academics.program_percentage.philosophy_religious,latest.academics.program_percentage.physical_science,latest.academics.program_percentage.psychology,latest.academics.program_percentage.security_law_enforcement,latest.academics.program_percentage.public_administration_social_service,latest.academics.program_percentage.social_science,latest.academics.program_percentage.transportation,latest.academics.program_percentage.visual_performing,latest.academics.program_percentage.health,latest.academics.program_percentage.business_marketing,latest.academics.program_percentage.history,latest.academics.program.bachelors.agriculture,latest.academics.program.bachelors.resources,latest.academics.program.bachelors.architecture,latest.academics.program.bachelors.ethnic_cultural_gender,latest.academics.program.bachelors.communication,latest.academics.program.bachelors.computer,latest.academics.program.bachelors.education,latest.academics.program.bachelors.engineering,latest.academics.program.bachelors.engineering_technology,latest.academics.program.bachelors.language,latest.academics.program.bachelors.family_consumer_science,latest.academics.program.bachelors.english,latest.academics.program.bachelors.humanities,latest.academics.program.bachelors.biological,latest.academics.program.bachelors.mathematics,latest.academics.program.bachelors.multidiscipline,latest.academics.program.bachelors.parks_recreation_fitness,latest.academics.program.bachelors.philosophy_religious,latest.academics.program.bachelors.physical_science,latest.academics.program.bachelors.psychology,latest.academics.program.bachelors.security_law_enforcement,latest.academics.program.bachelors.public_administration_social_service,latest.academics.program.bachelors.social_science,latest.academics.program.bachelors.transportation,latest.academics.program.bachelors.visual_performing,latest.academics.program.bachelors.health,latest.academics.program.bachelors.business_marketing,latest.academics.program.bachelors.history,latest.student.size,latest.cost.attendance.academic_year,latest.student.demographics.female_share,latest.student.demographics.first_generation,latest.student.demographics.race_ethnicity.white,latest.student.demographics.race_ethnicity.black,latest.student.demographics.race_ethnicity.hispanic,latest.student.demographics.race_ethnicity.asian,latest.student.demographics.race_ethnicity.aian,latest.student.demographics.race_ethnicity.nhpi,latest.student.demographics.race_ethnicity.two_or_more,latest.student.demographics.race_ethnicity.white_non_hispanic,latest.student.demographics.race_ethnicity.black_non_hispanic,latest.student.demographics.race_ethnicity.asian_pacific_islander,school.school_url&_per_page=32&api_key=IP4euHv2WjsUP1jrD2yCi4dQtC4B3jOARrFVQiLL`)
         .then(r => r.json())
         .then(({ results }) => {
-            console.log(results)
             for (let i = 0; i < 32; i++) {
                 uniData.push({
                     school: results[i]["school.name"],
@@ -181,12 +142,6 @@ const schoolData = () => {
                     long: results[i]["location.lon"]
 
                 })
-            }
-
-            for (let i = 0; i < 32; i++) {
-
-                schools.push(results[i]["school.name"])
-                schoolsId.push(results[i].id)
             }
 
         })
@@ -200,6 +155,12 @@ let card0 = {}
 let card1 = {}
 let card2 = {}
 
+//this function takes a number and adds thousands separtors to it.
+//https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+const numberWithCommas = (cost) => {
+    return cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const genCardInfo = () => {
 
     let selectedSchools = document.querySelectorAll(`.selectedSchool`)
@@ -207,50 +168,329 @@ const genCardInfo = () => {
     let school1 = selectedSchools[1].dataset.schoolidnum
     let school2 = selectedSchools[2].dataset.schoolidnum
     let progOfInt = document.querySelector(`#selectedProgram`).dataset.programid
-    let lat
-    let lon
-    let city
 
-    fetch(`https://api.data.gov/ed/collegescorecard/v1/schools?id=${school0},${school1},${school2}&_fields=location.lat,location.lon,id,school.name,school.city,school.zip,latest.academics.program.bachelors.${progOfInt},latest.academics.program_percentage.${progOfInt},school.minority_serving.hispanic,latest.admissions.admission_rate.overall,latest.student.size,latest.student.size,latest.cost.attendance.academic_year,latest.student.demographics.female_share,latest.student.demographics.first_generation,latest.student.demographics.race_ethnicity.white,latest.student.demographics.race_ethnicity.black,latest.student.demographics.race_ethnicity.hispanic,latest.student.demographics.race_ethnicity.asian,latest.student.demographics.race_ethnicity.aian,latest.student.demographics.race_ethnicity.nhpi,latest.student.demographics.race_ethnicity.asian_pacific_islander,school.school_url&_per_page=32&api_key=IP4euHv2WjsUP1jrD2yCi4dQtC4B3jOARrFVQiLL`)
+    let card = 0
+    fetch(`https://api.data.gov/ed/collegescorecard/v1/schools?id=${school0},${school1},${school2}&_fields=location.lat,location.lon,id,school.name,school.city,school.zip,school.locale,latest.academics.program.bachelors.${progOfInt},latest.academics.program_percentage.${progOfInt},school.minority_serving.hispanic,latest.admissions.admission_rate.overall,latest.student.size,latest.student.size,latest.cost.attendance.academic_year,latest.student.demographics.female_share,latest.student.demographics.first_generation,latest.student.demographics.race_ethnicity.white,latest.student.demographics.race_ethnicity.black,latest.student.demographics.race_ethnicity.hispanic,latest.student.demographics.race_ethnicity.asian,latest.student.demographics.race_ethnicity.aian,latest.student.demographics.race_ethnicity.nhpi,latest.student.demographics.race_ethnicity.asian_pacific_islander,school.school_url&_per_page=32&api_key=IP4euHv2WjsUP1jrD2yCi4dQtC4B3jOARrFVQiLL`)
         .then(r => r.json())
         .then(({ results }) => {
-            console.log(results)
 
             results.forEach(school => {
-                lat = school["location.lat"]
-                lon = school["location.lon"]
-                city = school["school.city"]
-                progOffered = school[`latest.academics.program.bachelors.${progOfInt}`]
-                percGrad = school[`latest.academics.program_percentage.${progOfInt}`]
-                admRate = Math.round(school["latest.admissions.admission_rate.overall"] * 100)
-                cost = `"$"${school["latest.cost.attendance.academic_year"].toFixed(2)}`
-                percFem = Math.round(school["latest.student.demographics.female_share"] * 100)
+                let lat = school["location.lat"]
+                let lon = school["location.lon"]
+                let city = school["school.city"]
+                let name = school["school.name"]
+                let size = school["school.locale"]
+                let url = school["school.school_url"]
+                let progOffered = school[`latest.academics.program.bachelors.${progOfInt}`]
+                let progOfferedText
+                let percGrad = Math.round(school[`latest.academics.program_percentage.${progOfInt}`] * 100)
+                let admRate = Math.round(school["latest.admissions.admission_rate.overall"] * 100)
+                let cost = `$${numberWithCommas(school["latest.cost.attendance.academic_year"].toFixed(2))}`
+                let percFem = Math.round(school["latest.student.demographics.female_share"] * 100)
+                let firstGen = Math.round(school["latest.student.demographics.first_generation"] * 100)
+                let aian = Math.round(school["latest.student.demographics.race_ethnicity.aian"] * 100)
+                let asian = Math.round(school["latest.student.demographics.race_ethnicity.asian"] * 100)
+                let api = Math.round(school["latest.student.demographics.race_ethnicity.asian_pacific_islander"] * 100)
+                let black = Math.round(school["latest.student.demographics.race_ethnicity.black"] * 100)
+                let hispanic = Math.round(school["latest.student.demographics.race_ethnicity.hispanic"] * 100)
+                let nhpi = Math.round(school["latest.student.demographics.race_ethnicity.nhpi"] * 100)
+                let white = Math.round(school["latest.student.demographics.race_ethnicity.white"] * 100)
+                let hsi = school["school.minority_serving.hispanic"]
 
 
+
+                switch (hsi) {
+                    case 0:
+                        hsi = "This is not a Hispanic Serving Institution"
+
+                    case 1:
+
+                        hsi = "This is a Hispanic Serving Institution"
+                }
 
                 //////////////////////////////////////////////////
                 /////CALL WEATHER AND YELP API FUNCTIONS HERE/////
                 //////////////////////////////////////////////////
-                weather(lat, lon)
 
-                console.log(lat)
-                console.log(lon)
-                console.log(city)
+
+                weather(lat, lon, card)
+                nearbyRestaurants(lat, lon, card)
+
+
+                /////SCHOOL IMGES
+                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school0}.png"`)
+                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school0}.png"`)
+
+                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school1}.png"`)
+                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school1}.png"`)
+
+
+                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school2}.png"`)
+                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school2}.png"`)
+
+                if (size <= 13) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/cityscape.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/cityscape.svg")
+                }
+                if (size > 13 && size <= 23) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/home.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/home.svg")
+                    
+                }
+                if (size > 23 && size <= 33) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/village.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/village.svg")
+                }
+                if (size > 33 && size <= 43) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/fields.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/fields.svg")
+
+                }
+
+
+                document.querySelector(`#mTitle${card}`).innerHTML = name
+                document.querySelector(`#dTitle${card}`).innerHTML = name
+
+                switch (progOffered) {
+                    case 0:
+                        progOfferedText = "This program is not offered here."
+                        document.querySelector(`#mSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>`
+
+                        document.querySelector(`#dSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>`
+                    case 1:
+                        progOfferedText = "This Program is offfered here!"
+                        document.querySelector(`#mSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>
+                        
+                        <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percGrad}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of students that graduated from this program last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${admRate}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of applicants that were accepted to the University last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${cost}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Approximate annual cost of attending this institution including tuition, housing, textbooks and supplies, and food.</p>
+                        </div>
+                      </div>
+
+                        `
+
+                        document.querySelector(`#dSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>
+                        
+                        <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percGrad}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of students that graduated from this program last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${admRate}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of applicants that were accepted to the University last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${cost}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Approximate annual cost of attending this institution including tuition, housing, textbooks and supplies, and food.</p>
+                        </div>
+                      </div>
+
+                        `
+                }
+
+               
+
+                document.querySelector(`#mDemDetails${card}`).innerHTML = `
+                <h3 class="sectionTitle align-middle">Demographics Snapshot:</h3>
+                <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percFem}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of student body that is female.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${firstGen}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students who are the first in their families to attend higher education.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${hispanic}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hispanic.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${black}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of African descent.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${aian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as American Indian or Alaskan Native.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${white}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of Students who are Caucasian.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${asian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian background.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${api}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian or Pacific Islander heritage.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${nhpi}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hawaian or Pacific Islander.</p>
+                      </div>
+                    </div>
+
+                `
+
+
+                document.querySelector(`#dDemDetails${card}`).innerHTML = `
+                <h3 class="sectionTitle align-middle">Demographics Snapshot:</h3>
+                <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percFem}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of student body that is female.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${firstGen}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students who are the first in their families to attend higher education.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${hispanic}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hispanic.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${black}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of African descent.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${aian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as American Indian or Alaskan Native.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${white}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of Students who are Caucasian.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${asian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian background.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${api}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian or Pacific Islander heritage.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${nhpi}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hawaian or Pacific Islander.</p>
+                      </div>
+                    </div>
+
+                `
+                card++
+
             });
-
 
         })
         .catch(e => console.error(e))
 
 }
-const weather = (lat, lon) => {
+
+
+
+
+const weather = (lat, lon, card) => {
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}5&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
         .then(r => r.json())
         .then(({ city, list }) => {
-            // //Optional Place to Pull City Name
-            // document.querySelector('.name').textContent = `${city.name} City Details`
-            //Displays 5 Day Forecast
             let storeWeather = []
             let weatherIcon = []
             let iconElement
@@ -260,8 +500,6 @@ const weather = (lat, lon) => {
             for (i = 0; i < list.length; i++) {
 
                 if (list[i].dt_txt.includes("15:00:00")) {
-                    // console.log(lat, lon)
-                    // console.log(~~`${list[i].main.temp}`)
                     storeWeather.push(list[i].main.temp)
                     weatherIcon.push(list[i].weather[0].icon)
                 }
@@ -269,94 +507,44 @@ const weather = (lat, lon) => {
 
             for (j = 0; j < storeWeather.length; j++) {
 
-                if (document.querySelector('#dWeather0').childElementCount >= 5) {
-                    if (document.querySelector('#dWeather1').childElementCount >= 5) {
-                        if (document.querySelector('#dWeather2').childElementCount >= 5) {
+                const dDayContainer = document.createElement('div')
+                const mDayContainer = document.createElement('div')
+                dDayContainer.setAttribute("class", "dayContainer")
+                mDayContainer.setAttribute("class", "dayContainer")
+                iconElement = document.createElement('div')
+                iconElement.setAttribute("class", "scrollContent")
+                tempElement = document.createElement('div')
+                tempElement.setAttribute("class", "scrollContent")
+                mIconElement = document.createElement('div')
+                mIconElement.setAttribute("class", "scrollContent")
+                mTempElement = document.createElement('div')
+                mTempElement.setAttribute("class", "scrollContent")
+                iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
+                tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
+                mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
+                mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
+                dDayContainer.append(iconElement)
+                dDayContainer.append(tempElement)
+                mDayContainer.append(mIconElement)
+                mDayContainer.append(mTempElement)
+                document.querySelector(`#dWeather${card}`).append(dDayContainer)
+                document.querySelector(`#mWeather${card}`).append(mDayContainer)
 
-                        } else {
-
-                            const dDayContainer = document.createElement('div')
-                            const mDayContainer = document.createElement('div')
-                            dDayContainer.setAttribute("class", "dayContainer")
-                            mDayContainer.setAttribute("class", "dayContainer")
-                            iconElement = document.createElement('div')
-                            iconElement.setAttribute("class", "scrollContent")
-                            tempElement = document.createElement('div')
-                            tempElement.setAttribute("class", "scrollContent")
-                            mIconElement = document.createElement('div')
-                            mIconElement.setAttribute("class", "scrollContent")
-                            mTempElement = document.createElement('div')
-                            mTempElement.setAttribute("class", "scrollContent")
-                            iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                            tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                            mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                            mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                            dDayContainer.append(iconElement)
-                            dDayContainer.append(tempElement)
-                            mDayContainer.append(mIconElement)
-                            mDayContainer.append(mTempElement)
-                            document.querySelector('#dWeather2').append(dDayContainer)
-                            document.querySelector('#mWeather2').append(mDayContainer)
-
-                        }
-
-                    } else {
-                        const dDayContainer = document.createElement('div')
-                        const mDayContainer = document.createElement('div')
-                        dDayContainer.setAttribute("class", "dayContainer")
-                        mDayContainer.setAttribute("class", "dayContainer")
-                        iconElement = document.createElement('div')
-                        iconElement.setAttribute("class", "scrollContent")
-                        tempElement = document.createElement('div')
-                        tempElement.setAttribute("class", "scrollContent")
-                        mIconElement = document.createElement('div')
-                        mIconElement.setAttribute("class", "scrollContent")
-                        mTempElement = document.createElement('div')
-                        mTempElement.setAttribute("class", "scrollContent")
-                        iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                        tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                        mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                        mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                        dDayContainer.append(iconElement)
-                        dDayContainer.append(tempElement)
-                        mDayContainer.append(mIconElement)
-                        mDayContainer.append(mTempElement)
-                        document.querySelector('#dWeather1').append(dDayContainer)
-                        document.querySelector('#mWeather1').append(mDayContainer)
-                    }
-                } else {
-                    const dDayContainer = document.createElement('div')
-                    const mDayContainer = document.createElement('div')
-                    dDayContainer.setAttribute("class","dayContainer")
-                    mDayContainer.setAttribute("class","dayContainer")
-                    iconElement = document.createElement('div')
-                    iconElement.setAttribute("class", "scrollContent")
-                    tempElement = document.createElement('div')
-                    tempElement.setAttribute("class", "scrollContent")
-                    mIconElement = document.createElement('div')
-                    mIconElement.setAttribute("class", "scrollContent")
-                    mTempElement = document.createElement('div')
-                    mTempElement.setAttribute("class", "scrollContent")
-                    iconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                    tempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                    mIconElement.innerHTML = `<img src="http://openweathermap.org/img/w/${weatherIcon[j]}.png" alt="${weatherIcon[j]}">`
-                    mTempElement.innerHTML = ~~`${storeWeather[j]}` + "&#176"
-                    dDayContainer.append(iconElement)
-                    dDayContainer.append(tempElement)
-                    mDayContainer.append(mIconElement)
-                    mDayContainer.append(mTempElement)
-                    document.querySelector('#dWeather0').append(dDayContainer)
-                    document.querySelector('#mWeather0').append(mDayContainer)
-                }
             }
         })
         .catch(e => console.error(e))
 }
 
+
+
 document.addEventListener('click', e => {
-    if (document.querySelectorAll(`.selectedSchool`).length === 3) {
+    e.preventDefault();
+    if (document.querySelectorAll(`.selectedSchool`).length === 3 && document.querySelector('#selectedProgram').childElementCount === 1) {
         if (e.target.id === "genCards") {
-            e.preventDefault();
+            document.querySelector(`#beginSearch`).style.display = "none"
+            document.querySelector(`.logoBackground`).style.display = "none"
+            document.querySelector(`#myCarousel`).style.display = "block"
+
             genCardInfo()
         }
     }
@@ -373,11 +561,6 @@ document.addEventListener('click', e => {
 //communications tech
 //legal
 //library
-
-
-let schools = [];
-let schoolsId = []
-
 
 
 const autocomplete = (inputField, searchArray, key) => {
@@ -406,10 +589,7 @@ const autocomplete = (inputField, searchArray, key) => {
                 /*create a div element for each matching element:*/
                 item = document.createElement("div")
                 item.setAttribute("id", id)
-                console.log(document.querySelector('#threeSchools').childElementCount)
                 if (document.querySelector('#threeSchools').childElementCount > 0) {
-                    console.log(document.querySelector('#threeSchools').childNodes[0])
-
                     for (let j = 0; j < document.querySelector('#threeSchools').childElementCount; j++) {
                         if (document.querySelector('#threeSchools').childNodes[j].id === item.id) {
                             item.setAttribute("class", "disabled")
@@ -430,7 +610,6 @@ const autocomplete = (inputField, searchArray, key) => {
 
                 /*execute a function when someone clicks on the item value (DIV element):*/
                 item.addEventListener("click", e => {
-                    console.log(e.currentTarget.getElementsByTagName("input")[0])
                     /*insert the value for the autocomplete text field:*/
                     inputField.value = ''
                     //inputField.value = e.currentTarget.getElementsByTagName("input")[0];
@@ -443,13 +622,10 @@ const autocomplete = (inputField, searchArray, key) => {
                         selectedSchool.setAttribute("data-schoolidnum", `${id}`)
                         selectedSchool.innerHTML = `
                     <p>${e.currentTarget.getElementsByTagName("input")[0].value}</p>
-                    <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage_white.svg" width="40px auto">
+                    <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage.svg" width="40px auto">
                     `
-                        // selectedSchool.textContent = e.currentTarget.getElementsByTagName("input")[0].value;
 
                         document.querySelector('#threeSchools').appendChild(selectedSchool)
-                        //document.getElementById(`${e.currentTarget.getElementsByTagName("input")[0].value}`).setAttribute("class", "disabled")
-                        //console.log(document.getElementById(`${e.currentTarget.getElementsByTagName("input")[0].value}`))
 
                         if (document.querySelector('#threeSchools').childElementCount === 3) {
                             inputField.disabled = true
@@ -493,7 +669,7 @@ const autocomplete = (inputField, searchArray, key) => {
             e.preventDefault()
             if (currentFocus > -1) {
                 /*and simulate a click on the "active" item:*/
-                if (autoCompleteList) list[currentFocus].click()
+                if (autoCompleteList) autoCompleteList[currentFocus].click()
             }
         }
     });
@@ -534,9 +710,7 @@ document.addEventListener('click', ({ target }) => {
 
 
     if (target.id === `delete${target.dataset.schoolid}`) {
-        console.log(document.querySelector(`#delete${target.dataset.schoolid}`))
         let element = document.getElementById(document.querySelector(`#delete${target.dataset.schoolid}`).dataset.schoolid)
-        console.log(element)
         element.parentNode.removeChild(element);
 
         if (document.querySelector('#threeSchools').childElementCount < 3) {
@@ -546,7 +720,6 @@ document.addEventListener('click', ({ target }) => {
     }
 })
 
-//console.log(uniData[0].school)
 autocomplete(document.getElementById("schools"), uniData, "school")
 autocomplete(document.getElementById("majors"), programs, "programname")
 
@@ -579,3 +752,103 @@ $(document).ready(function () {
 $('.carousel').carousel({
     interval: false
 })
+
+
+const API_KEY = `iVz6PibRAoLRoTSl56wquqWLvwwmn2iiP4Wo1iQ5s0mMnZCWH-z1fJxqUrJ28RPlnzVPnkwGmTuccBdYABv17K_608JxM8HAmq8syuOHiB59yKC8Pb5-djqI6KWfXHYx`;
+let queryURL
+let urlYelp
+
+const nearbyRestaurants = (lat, lon, card) => {
+
+    urlYelp = `https://api.yelp.com/v3/businesses/search?latitude=${lat}&longitude=${lon}&term&categories=restaurant&limit=3`;
+
+    queryURL = `https://cors-anywhere.herokuapp.com/${urlYelp}`;
+    let rating = []
+    let name = []
+    let url = []
+
+    fetch(queryURL, {
+
+        method: "GET",
+        headers: {
+            "accept": "application/json",
+            "x-requested-with": "xmlhttprequest",
+            "Access-Control-Allow-Origin": "*",
+            "Authorization": `Bearer ${API_KEY}`
+        }
+    }).then(r => r.json())
+        .then(({ businesses }) => {
+
+            for (let i = 0; i < 3; i++) {
+
+
+                rating.push(businesses[i].rating)
+                name.push(businesses[i].name)
+                url.push(businesses[i].url)
+
+            }
+
+            document.querySelector(`#mYelp${card}`).innerHTML = `
+                                <div class="card scrollContent" style="width: 18rem;">
+                                 <div class="card-body">
+                                        <h5 class="card-title">${name[0]}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">${rating[0]}</h6>
+                                         <a class="info" href="${url[0]}">${name[0]}</a>
+                                    </div>
+                                </div>
+
+                                <div class="card scrollContent" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${name[1]}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">${rating[1]}</h6>
+                                         <a class="info" href="${url[1]}">${name[1]}</a>
+                                     </div>
+                                 </div>
+
+                            <div class="card scrollContent" style="width: 18rem;">
+                                 <div class="card-body">
+                                     <h5 class="card-title">${name[2]}</h5>
+                                     <h6 class="card-subtitle mb-2 text-muted">${rating[2]}</h6>
+                                     <a class="info" href="${url[2]}">${name[2]}</a>
+                                </div>
+                            </div>
+                         `
+
+            document.querySelector(`#dYelp${card}`).innerHTML = `
+                         <div class="card scrollContent" style="width: 18rem;">
+                          <div class="card-body">
+                                 <h5 class="card-title">${name[0]}</h5>
+                                 <h6 class="card-subtitle mb-2 text-muted">${rating[0]}</h6>
+                                  <a class="info" href="${url[0]}">${name[0]}</a>
+                             </div>
+                         </div>
+
+                         <div class="card scrollContent" style="width: 18rem;">
+                             <div class="card-body">
+                                 <h5 class="card-title">${name[1]}</h5>
+                                 <h6 class="card-subtitle mb-2 text-muted">${rating[1]}</h6>
+                                  <a class="info" href="${url[1]}">${name[1]}</a>
+                              </div>
+                          </div>
+
+                     <div class="card scrollContent" style="width: 18rem;">
+                          <div class="card-body">
+                              <h5 class="card-title">${name[2]}</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">${rating[2]}</h6>
+                              <a class="info" href="${url[2]}">${name[2]}</a>
+                         </div>
+                     </div>
+                  `
+
+        })
+}
+
+
+
+// var card = document.querySelector('.cardFlipper');
+// card.addEventListener( 'click', e => {
+//     console.log(e.target.className)
+//     // if (e.target.className==='cardFlipper'){
+//         card.classList.toggle('is-flipped');
+//     // }
+// });
