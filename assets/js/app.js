@@ -799,6 +799,8 @@ const nearbyRestaurants = (lat, lon, card) => {
                                  <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[0]} out of 5</h9>
                                  <br>
                                   <p><b>Price:</b> ${price[0]}</p>
+                                  <br>
+                                     <img src=`./assets/images/food.png`></img>
                                  <p>
                                  ${address1[0]} ${address2[0]}<br>
                                 ${city[0]}, ${state[0]}<br>
@@ -816,6 +818,8 @@ const nearbyRestaurants = (lat, lon, card) => {
                                     <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[1]} out of 5</h9>
                                     <br>
                                      <p><b>Price:</b>${price[1]}</p>
+                                     <br>
+                                     <img src=`./assets/images/food.png`></img>
                                     <p>
                                     ${address1[1]} ${address2[1]}<br>
                                    ${city[1]}, ${state[1]}<br>
@@ -832,6 +836,8 @@ const nearbyRestaurants = (lat, lon, card) => {
                                  <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[2]} out of 5</h9>
                                  <br>
                                   <p><b>Price:</b> ${price[2]}</p>
+                                  <br>
+                                     <img src=`./assets/images/food.png`></img>
                                  <p>
                                  ${address1[2]} ${address2[2]}<br>
                                 ${city[2]}, ${state[2]}<br>
@@ -849,6 +855,8 @@ const nearbyRestaurants = (lat, lon, card) => {
                           <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[0]} out of 5</h9>
                           <br>
                           <p><b>Price:</b>${price[0]}</p>
+                          <br>
+                                     <img src=`./assets/images/food.png`></img>
                           <p>
                           ${address1[0]} ${address2[0]}<br>
                           ${city[0]}, ${state[0]}<br>
@@ -863,6 +871,8 @@ const nearbyRestaurants = (lat, lon, card) => {
                              <p><h9 class="text-muted">${type[1]}</p></h9>
                           <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[1]} out of 5</h9>
                           <p><b>Price:</b>${price[1]}</p>
+                          <br>
+                                     <img src=`./assets/images/food.png`></img>
                           <p>
                           ${address1[1]} ${address2[1]}<br>
                           ${city[1]}, ${state[1]}<br>
@@ -878,6 +888,8 @@ const nearbyRestaurants = (lat, lon, card) => {
                           <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[2]} out of 5</h9>
                           <br>
                           <p><b>Price:</b>${price[2]}</p>
+                          <br>
+                                     <img src=`./assets/images/food.png`></img>
                           <p>
                           ${address1[2]} ${address2[2]}<br>
                           ${city[2]}, ${state[2]}<br>
