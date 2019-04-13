@@ -168,7 +168,6 @@ const genCardInfo = () => {
     let school1 = selectedSchools[1].dataset.schoolidnum
     let school2 = selectedSchools[2].dataset.schoolidnum
     let progOfInt = document.querySelector(`#selectedProgram`).dataset.programid
-
     let card = 0
     fetch(`https://api.data.gov/ed/collegescorecard/v1/schools?id=${school0},${school1},${school2}&_fields=location.lat,location.lon,id,school.name,school.city,school.zip,school.locale,latest.academics.program.bachelors.${progOfInt},latest.academics.program_percentage.${progOfInt},school.minority_serving.hispanic,latest.admissions.admission_rate.overall,latest.student.size,latest.student.size,latest.cost.attendance.academic_year,latest.student.demographics.female_share,latest.student.demographics.first_generation,latest.student.demographics.race_ethnicity.white,latest.student.demographics.race_ethnicity.black,latest.student.demographics.race_ethnicity.hispanic,latest.student.demographics.race_ethnicity.asian,latest.student.demographics.race_ethnicity.aian,latest.student.demographics.race_ethnicity.nhpi,latest.student.demographics.race_ethnicity.asian_pacific_islander,school.school_url&_per_page=32&api_key=IP4euHv2WjsUP1jrD2yCi4dQtC4B3jOARrFVQiLL`)
         .then(r => r.json())
@@ -213,25 +212,20 @@ const genCardInfo = () => {
                 /////CALL WEATHER AND YELP API FUNCTIONS HERE/////
                 //////////////////////////////////////////////////
 
+                weather(lat, lon, card)
+                nearbyRestaurants(lat, lon, card)
+
+
+                //ENVIRONMENT IMAGES
+
 
                 weather(lat, lon, card)
                 nearbyRestaurants(lat, lon, card)
 
 
                 /////SCHOOL IMGES
-                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school0}.png"`)
-                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school0}.png"`)
-
-                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school1}.png"`)
-                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school1}.png"`)
-
-
-                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school2}.png"`)
-                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school2}.png"`)
-
                 document.querySelector(`#mLogo${card}`).setAttribute("src", `./assets/images/${id}.png`)
                 document.querySelector(`#dLogo${card}`).setAttribute("src", `./assets/images/${id}.png`)
-
 
                 if (size <= 13) {
                     document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/cityscape.svg")
@@ -240,7 +234,7 @@ const genCardInfo = () => {
                 if (size > 13 && size <= 23) {
                     document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/home.svg")
                     document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/home.svg")
-
+                    
                 }
                 if (size > 23 && size <= 33) {
                     document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/village.svg")
@@ -321,6 +315,8 @@ const genCardInfo = () => {
 
                         `
                 }
+
+               
 
                 document.querySelector(`#mDemDetails${card}`).innerHTML = `
                 <h3 class="sectionTitle align-middle">Demographics Snapshot:</h3>
@@ -468,8 +464,7 @@ const genCardInfo = () => {
 
 }
 
-
-
+//WEATHER API
 
 const weather = (lat, lon, card) => {
 
@@ -536,19 +531,7 @@ document.addEventListener('click', e => {
     }
 })
 
-////REMOVED:////
-//personal_culinary
-//military
-//theology_religious_vocation"
-//science_technology
-//construction
-//mechanic_repair_technology"
-//precision_production
-//communications tech
-//legal
-//library
-
-
+//AUTOCOMPLETE
 const autocomplete = (inputField, searchArray, key) => {
 
     /*the autocomplete function takes two arguments,
@@ -610,7 +593,6 @@ const autocomplete = (inputField, searchArray, key) => {
                     <p>${e.currentTarget.getElementsByTagName("input")[0].value}</p>
                     <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage.svg" width="40px auto">
                     `
-
                         document.querySelector('#threeSchools').appendChild(selectedSchool)
 
                         if (document.querySelector('#threeSchools').childElementCount === 3) {
@@ -739,6 +721,7 @@ $('.carousel').carousel({
     interval: false
 })
 
+//YELP API
 
 const API_KEY = `iVz6PibRAoLRoTSl56wquqWLvwwmn2iiP4Wo1iQ5s0mMnZCWH-z1fJxqUrJ28RPlnzVPnkwGmTuccBdYABv17K_608JxM8HAmq8syuOHiB59yKC8Pb5-djqI6KWfXHYx`;
 let queryURL
@@ -761,6 +744,7 @@ const nearbyRestaurants = (lat, lon, card) => {
     let type = []
     // let image = []
 
+
     fetch(queryURL, {
 
         method: "GET",
@@ -772,7 +756,7 @@ const nearbyRestaurants = (lat, lon, card) => {
         }
     }).then(r => r.json())
         .then(({ businesses }) => {
-            
+
             for (let i = 0; i < 3; i++) {
 
 
@@ -789,7 +773,7 @@ const nearbyRestaurants = (lat, lon, card) => {
                 // image.push(businesses[i].image_url)
 
             }
-
+            //CARDS: YELP INFORMATION
             document.querySelector(`#mYelp${card}`).innerHTML = `
                                 <div class="card scrollContent" style="width: 18rem;">
                                  <div class="card-body text-center">
@@ -803,7 +787,6 @@ const nearbyRestaurants = (lat, lon, card) => {
                                 ${city[0]}, ${state[0]}<br>
                                  ${zipcode[0]}
                                  </p>
-
 
                                    </div>
                                 </div>
@@ -842,6 +825,7 @@ const nearbyRestaurants = (lat, lon, card) => {
 
             document.querySelector(`#dYelp${card}`).innerHTML = `
                          <div class="card scrollContent" style="width: 18rem;">
+<
                           <div class="card-body text-center">
                           <h5><a class="card-title text-bold" a href="${url[0]}">${name[0]} </a></h5>
                           <p><h9 class="text-muted">${type[0]}</p></h9>
@@ -906,11 +890,3 @@ const reset = () => {
     document.getElementById("schools").placeholder = "Schools"
 
 }
-
-// var card = document.querySelector('.cardFlipper');
-// card.addEventListener( 'click', e => {
-//     console.log(e.target.className)
-//     // if (e.target.className==='cardFlipper'){
-//         card.classList.toggle('is-flipped');
-//     // }
-// });

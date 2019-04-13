@@ -31,7 +31,6 @@
         <div id="selectedProgram"></div>
       </div>
   </div>
-
   <div class="has-search" id="searchIt">
     <div class="autocomplete" style="width:300px;">
       <span class="fa fa-search form-control-feedback"></span>
@@ -72,11 +71,26 @@
                 placeholder="zip" pattern="[0-9]*" required>
             </div>
           </div>
-          <div class="modal-footer d-flex justify-content-center">
-            <button id='registerbtn' type="submit" class="btn btn-default" type="button">REGISTER</button>
+          <div id="email" class="md-form mb-4">
+            <input type="email" id="defaultForm-email" class="form-control validate" placeholder="email" required>
           </div>
-        </form>
-      </div>
+          <div class="md-form mb-4">
+            <input type="password" id="defaultForm-password" class="form-control validate" placeholder="password"
+              required>
+          </div>
+          <div class="md-form mb-4">
+            <input type="number" min="1" max="150" id="defaultForm-age" class="form-control validate"
+              placeholder="age" required>
+          </div>
+          <div class="md-form mb-4">
+            <input type="" min="00000" max="99999" id="defaultForm-zip" class="form-control validate"
+              placeholder="zip" pattern="[0-9]*" required>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button id='registerbtn' type="submit" class="btn btn-default" type="button">REGISTER</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -183,11 +197,10 @@
               <div class="scrolling-wrapper card-text" id="mYelp2"></div>
               <div class="scrolling-wrapper card-text" id="mSchool2"></div>
               <div class="scrolling-wrapper card-text" id="mDemDetails2"></div>
+
             </div>
           </div>
         </div>
-
-
       </div>
 
 
@@ -207,7 +220,7 @@
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

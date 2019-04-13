@@ -16,6 +16,16 @@ body {
   padding-left: 2.375rem;
 }
 
+
+/* .modal-dialog-centered {
+  border-radius: 500px;
+  max-width: 300px;
+  min-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+} */
+
 .has-search .form-control-feedback {
   position: absolute;
   z-index: 2;
@@ -28,27 +38,20 @@ body {
   color: #aaa;
 }
 
-.has-search {
-  margin: 0 auto;
-  /* margin-top: 50px;
-  margin-bottom: 25px; */
-  /* width: 600px; */
-}
+#selectedProgram { 
+  background-color:#17141dae;
+  box-shadow: -1rem 0 3rem #000; 
+  color: white; 
+  height: auto; 
+  width: 200px; 
+  align-items: center; 
+  margin: 0 auto; 
+  margin-top: 25px; 
+  margin-bottom: 25px; 
+  border-radius: 10px; 
+  font-family: 'muli'sans-serif; 
+  font-weight: bold; 
 
-#selectedProgram {
-  background-color: #17141d;
-  box-shadow: -1rem 0 3rem #000;
-  color: white;
-  padding: 10px;
-  height: auto;
-  width: 200px;
-  align-items: center;
-  margin: 0 auto;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  border-radius: 10px;
-  font-family: 'muli'sans-serif;
-  font-weight: bold;
   text-align: center;
 }
 
@@ -102,16 +105,15 @@ body {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  margin-left: 142px;
+  margin-left: 125px;
   margin-bottom: 20px;
-  /* position: relative; */
+
 }
 
 .logo {
   height: 190px;
   width: 180px;
   display: block;
-  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
@@ -147,6 +149,206 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.carousel-inner{
+  background-color: transparent;
+}
+
+ /* .card-body {
+  background-color:#17141dd8;
+  
+ }
+ /* .carousel-inner {
+  background-color:#17141dae;
+ } */
+
+ .carousel-item {
+   padding-bottom: 5px;
+ }
+ /* DESKTOP CSS */
+ #dYelp0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dYelp1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dYelp2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ 
+ #dSchool0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 12px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dSchool1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dSchool2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ 
+ #dDemDetails0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dDemDetails1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ 
+ #dDemDetails2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ /* MOBILE CSS */
+ #mYelp0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mYelp1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ #mYelp2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mSchool0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 12px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mSchool1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mSchool2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ 
+ #mDemDetails0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mDemDetails1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ 
+ #mDemDetails2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+  
+  
+
+
+
 /* fonts */
 
 /* font-family: 'Bree Serif', serif;
@@ -154,9 +356,77 @@ font-family: 'Patua One', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Muli', sans-serif; */
 
-/* HAMZA */
+/* Flip Cards */
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-/* * { box-sizing: border-box; } */
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.cardFlipper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+    .cardFlipper div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #FFF;
+        text-align: center;
+        line-height: 200px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+
+    .cardFlipper .back {
+        background: #222;
+        color: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+
+label:hover .cardFlipper {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+.flipper {
+    display: none;
+}
+
+:checked + .cardFlipper {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+} */
+
+/* HAMZA */
 
 body {
   font: 16px Arial;
@@ -218,11 +488,13 @@ input[type=submit] {
 
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
+
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
 }
 
-.disabled {
+
+.disabled{
   pointer-events: none;
   color: gray;
   background-color: rgb(165, 160, 160);
@@ -295,12 +567,11 @@ input[type=submit] {
 
 .insignia{
   background-color:  rgba(135, 206, 250, 0.429);
+
 }
 
-
-
-
-
+/* CSS for the Cards
+A lot of help from https://codepen.io/kreigd/pen/ybYNoN */
 
 /* Bryan's Card CSS */
 /* CSS for the Cards */
