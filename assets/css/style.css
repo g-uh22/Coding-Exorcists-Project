@@ -1,6 +1,7 @@
 body {
-  background-image: url('../images/kelli-tungay-324329-unsplash.jpg');
-  height: 100%;
+  background-image: url('../images/study.png');
+  /* background: linear-gradient(110deg,lightskyblue 60%, lightblue 60%); */
+  height: auto;
   width: auto;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -11,37 +12,114 @@ body {
   background-attachment: fixed;
 }
 
-/* #parent {
-  float: left;
-}
-
-#child {
-  float: right;
-  margin-left: 10px;
+/* .grid-container {
+  display: grid;
+  grid-gap: 50px;
 } */
 
-#threeSchools {
-  background-color: lightblue;
-  width: 450px;
-  height: auto;
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+.has-search {
   margin: 0 auto;
+  /* margin-top: 50px;
+  margin-bottom: 25px; */
+  /* width: 600px; */
+}
+
+#selectedProgram { 
+  background-color:#17141d; 
+  box-shadow: -1rem 0 3rem #000; 
+  color: white; 
+  padding: 10px; 
+  height: auto; 
+  width: 200px; 
+  align-items: center; 
+  margin: 0 auto; 
+  margin-top: 25px; 
+  margin-bottom: 25px; 
+  border-radius: 10px; 
+  font-family: 'muli'sans-serif; 
+  font-weight: bold; 
   text-align: center;
 }
 
-.logo {
-  height: 300px;
-  width: 350px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 1;
-}
-.logoBackground {
-  background-color: white;
-  height: 320px;
-  opacity: 0.95;
+#threeSchools {
+  background-color:#17141dae;
+  box-shadow: -1rem 0 3rem #000;
+  color: white;
+  padding: 10px;
+  height: auto;
+  width: 310px;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  font-family: 'muli' sans-serif;
+  font-weight: bold;
+  text-align: center;
 }
 
+#genCards {
+  width: 80px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin-left: 600px;
+}
+
+/* .right {
+  margin: 0 auto;
+  text-align: center;
+  margin-left: 110px;
+  margin-right: 20px;
+  margin-bottom: 25px;
+  width: 500px;
+} */
+
+.logo {
+  min-height:100px;
+  min-width: 100px;
+  height: auto;
+  width: 180px;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  content: center top;
+}
+
+.logoBackground {
+  /* background-color: rgb(255, 179, 37); */
+  height: 210px;
+  width: 195px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: rgba(0, 0, 0, 0.703);
+}
+
+
+
+/* Fixed width & padding  */
 /* .modal-dialog-centered {
 border-radius: 500px;
 max-width: 400px;
@@ -52,13 +130,14 @@ padding: 10px;
 } */
 
 .modal-header {
-background-color:lightskyblue;
+  background-color: lightskyblue;
 }
 
 .modal-footer {
-background-color:lightblue;
-color: white;
+  background-color: lightblue;
+  color: white;
 }
+
 .modal-title {
   font-family: 'Poppins', sans-serif;
 }
@@ -78,20 +157,6 @@ color: white;
   font-family: 'Poppins', sans-serif;
 }
 
-/* .container {
-  border-radius: 5px;
-  background-color: transparent;
-  padding: 20px;
-  text-align: center;
-} */
-
-
-/* .autocomplete {
-  margin: 0 auto;
-  text-align: center;
-} */
-
-
 /* fonts */
 
 /* font-family: 'Bree Serif', serif;
@@ -99,14 +164,8 @@ font-family: 'Patua One', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Muli', sans-serif; */
 
-* {
-  box-sizing: border-box;
-}
-
-
-
 /* HAMZA */
-* { box-sizing: border-box; }
+/* * { box-sizing: border-box; } */
 body {
   font: 16px Arial;
 }
@@ -165,13 +224,11 @@ input[type=submit] {
 
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
+  background-color: DodgerBlue !important;
+  color: #ffffff;
 }
 
-
-.disabled{
+.disabled {
   pointer-events: none;
   color: gray;
   background-color: rgb(165, 160, 160);
@@ -182,75 +239,32 @@ input[type=submit] {
   color: #ffffff;
 } */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.scrollContent {
+  flex: 0 0 auto;
+  margin: 5px;
+  /* display: inline-block; */
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.info {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
 
 /* Bryan's Card CSS */
+
 /* CSS for the Cards */
+
 @media (max-width: 768px) {
   #row1 {
     display: none;
@@ -303,8 +317,14 @@ input[type=submit] {
     visibility: visible;
   }
 }
+.dayContainer {
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+}
 
-
+.card-title {
+  font-family: 'Muli', sans-serif;
+}
 
 /* styling for yelp */
 /* https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
