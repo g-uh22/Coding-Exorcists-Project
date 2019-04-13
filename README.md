@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-# Coding-Exorcists-Project
-=======
-# Coding-Exorcists-Project
+COLLEGE MATCH
 
-<<<<<<< HEAD
+Just graduated from high school? Looking to attend a UC or Cal State school? College Match is the right app for you!
 
-
-
-
-
-Bryan's Push
-=======
->>>>>>> 76baf612235ccc3d408727805f0f2172c60a8694
->>>>>>> efee79782f34bdc7d714590a98469a16a9c846c5
+Search a 4 year program/major you're interested in and compare up to 3 schools at a time. 
