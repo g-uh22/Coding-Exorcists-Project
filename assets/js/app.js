@@ -219,7 +219,7 @@ const genCardInfo = () => {
                 nearbyRestaurants(lat, lon, card)
 
 
-                ///SCHOOL IMAGES
+                //ENVIRONMENT IMAGES
 
 
                 if (size <= 13) {
@@ -241,7 +241,8 @@ const genCardInfo = () => {
 
                 }
 
-
+                //CARDS: SCHOOL INFORMATION
+                //PROGRAM INFO
                 document.querySelector(`#mTitle${card}`).innerHTML = name
                 document.querySelector(`#dTitle${card}`).innerHTML = name
 
@@ -294,7 +295,7 @@ const genCardInfo = () => {
                           <p class="info">Percent of students that graduated from this program last year.</p>
                         </div>
                       </div>
-
+                        
                       <div class="card scrollContent" style="width: 18rem;">
                         <div class="card-body">
                           <h5 class="card-title">${admRate}%</h5>
@@ -467,18 +468,11 @@ const genCardInfo = () => {
 
                 `
 
-                // let colleges = [ ${school0}, ${school1}, ${school2}];
-                // colleges.sort();
 
+                //SCHOOL IMAGES 
                 document.querySelector(`#mLogo${card}`).setAttribute("src", `./assets/images/${id}.png`)
                 document.querySelector(`#dLogo${card}`).setAttribute("src", `./assets/images/${id}.png`)
 
-                // document.querySelector(`#dLogo1`).setAttribute("src", `./assets/images/${id}.png`)
-                // document.querySelector(`#mLogo1`).setAttribute("src", `./assets/images/${id}.png`)
-
-
-                // document.querySelector(`#dLogo2`).setAttribute("src", `./assets/images/${id}.png`)
-                // document.querySelector(`#mLogo2`).setAttribute("src", `./assets/images/${id}.png.png`)
                 card++
 
             });
@@ -490,7 +484,7 @@ const genCardInfo = () => {
 
 
 
-
+//WEATHER API
 const weather = (lat, lon, card) => {
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}5&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
@@ -555,19 +549,7 @@ document.addEventListener('click', e => {
     }
 })
 
-////REMOVED:////
-//personal_culinary
-//military
-//theology_religious_vocation"
-//science_technology
-//construction
-//mechanic_repair_technology"
-//precision_production
-//communications tech
-//legal
-//library
-
-
+//AUTOCOMPLETE
 const autocomplete = (inputField, searchArray, key) => {
 
     /*the autocomplete function takes two arguments,
@@ -758,7 +740,7 @@ $('.carousel').carousel({
     interval: false
 })
 
-
+//YELP API
 const API_KEY = `iVz6PibRAoLRoTSl56wquqWLvwwmn2iiP4Wo1iQ5s0mMnZCWH-z1fJxqUrJ28RPlnzVPnkwGmTuccBdYABv17K_608JxM8HAmq8syuOHiB59yKC8Pb5-djqI6KWfXHYx`;
 let queryURL
 let urlYelp
@@ -791,7 +773,7 @@ const nearbyRestaurants = (lat, lon, card) => {
         }
     }).then(r => r.json())
         .then(({ businesses }) => {
-            
+
             for (let i = 0; i < 3; i++) {
 
 
@@ -808,7 +790,7 @@ const nearbyRestaurants = (lat, lon, card) => {
                 // image.push(businesses[i].image_url)
 
             }
-
+            //CARDS: YELP INFORMATION
             document.querySelector(`#mYelp${card}`).innerHTML = `
                                 <div class="card scrollContent" style="width: 18rem;">
                                  <div class="card-body text-center">
