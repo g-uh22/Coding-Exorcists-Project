@@ -1,5 +1,5 @@
 body {
-  background-image: url('../images/study.png');
+  background-image: url('../images/study.jpg');
   /* background: linear-gradient(110deg,lightskyblue 60%, lightblue 60%); */
   height: 100%;
   width: auto;
@@ -55,8 +55,36 @@ body {
   text-align: center;
 }
 
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+#selectedProgram { 
+  background-color:#17141dae;
+  box-shadow: -1rem 0 3rem #000; 
+  color: white; 
+  height: auto; 
+  width: 200px; 
+  align-items: center; 
+  margin: 0 auto; 
+  margin-top: 25px; 
+  margin-bottom: 25px; 
+  border-radius: 10px; 
+  font-family: 'muli'sans-serif; 
+  font-weight: bold; 
+  text-align: center;
+}
+
 #threeSchools {
-  background-color: #17141dae;
+  background-color:#17141dae;
   box-shadow: -1rem 0 3rem #000;
   color: white;
   height: auto;
@@ -79,6 +107,7 @@ body {
   -o-border-radius: 10px;
   margin-left: 125px;
   margin-bottom: 20px;
+
 }
 
 .logo {
@@ -91,22 +120,6 @@ body {
   margin-bottom: 25px;
   opacity: 1;
 }
-
-/* .logoBackground { */
-  /* background-color: rgb(255, 179, 37); */
-  /* height: 210px;
-  width: 195px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin-bottom: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
-
-  background-color: rgba(0, 0, 0, 0.703); */
-/* } */
-
 
 .modal-header {
   background-color: rgba(135, 206, 250, 0.429);
@@ -421,9 +434,9 @@ body {
 
 .autocomplete {
   /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-  display: block;
+  position: relative !important;
+  display: inline-block !important;
+  display: block !important;
   margin-left: auto;
   margin-right: auto;
   width: auto;
@@ -520,7 +533,7 @@ input[type=submit] {
     position: absolute;
     z-index: 1;
     right: 16px;
-    top: 180px;
+    top: 253px;
 }
 
 .areaEnvD {
@@ -528,15 +541,40 @@ input[type=submit] {
   position: absolute;
   z-index: 1;
   right: 16px;
-  top: 223px;
+  top: 309px;
 }
 
-/* Bryan's Card CSS */
+#reset {
+  background-color:rgb(177, 168, 168);
+  box-sizing:border-box;
+  border-radius: 50%;
+  behavior: url(PIE.htc);
+  width: 50px;
+  height:50px;
+  line-height: 30px;
+  padding: 8px;
+  border: 1px solid #666;
+  color: #666;
+  text-align: center;
+  margin-top:8px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.insignia{
+  background-color:  rgba(135, 206, 250, 0.429);
+
+}
 
 /* CSS for the Cards
 A lot of help from https://codepen.io/kreigd/pen/ybYNoN */
 
+/* Bryan's Card CSS */
+/* CSS for the Cards */
 @media (max-width: 768px) {
   #row1 {
     display: none;
@@ -589,45 +627,11 @@ A lot of help from https://codepen.io/kreigd/pen/ybYNoN */
     visibility: visible;
   }
 }
-
 .dayContainer {
   text-align: center;
   font-family: 'Muli', sans-serif;
-}
-
-.card-title {
+ }
+ 
+ .card-title {
   font-family: 'Muli', sans-serif;
-}
-
-/* styling for yelp */
-
-/* https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
-
-/* scrolling styling */
-
-.scrolling-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch !important;
-}
-
-.scrollContent {
-  flex: 0 0 auto;
-  margin: 5px;
-  /* display: inline-block; */
-}
-
-.scrolling-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.info {
-  word-wrap: break-word;
-  white-space: pre-wrap;
-}
-
-.sectionTitle {
-  justify-content: center;
-  align-items: center;
-}
+ }

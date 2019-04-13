@@ -18,6 +18,8 @@
     <img src="./assets/images/BLUE College Match Logo.png" alt="CollegeMatch" class="logo">
   </div>
 
+  <!-- Search Fields -->
+  <!-- action="/action_page.php" -->
   <!--Make sure the form has the autocomplete function switched off:-->
   <div class="container centered" id="beginSearch">
     <form autocomplete="off" action="/action_page.php">
@@ -35,22 +37,39 @@
       <input id="schools" class="form-control" type="text" name="myInput" placeholder="Schools">
     </div>
     <div id="threeSchools"></div>
-    <input type="submit" class="" id="genCards">
+    <div class="centered">
+    <input type="submit" id="genCards">
+    </div>
     </form>
   </div>
 
-
-<!-- Registration Modal -->
- <div id="signUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">JOIN THE SEARCH!</h4>
-      </div>
-      <form>
-        <div class="modal-body mx-3">
-          <div class="md-form mb-4 form-group">
-            <input type="text" id="defaultForm-name" class="form-control validate" placeholder="name" required>
+  <!-- Registration Modal -->
+  <div id="signUp" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">JOIN THE SEARCH!</h4>
+        </div>
+        <form>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-4 form-group">
+              <input type="text" id="defaultForm-name" class="form-control validate" placeholder="name" required>
+            </div>
+            <div id="email" class="md-form mb-4">
+              <input type="email" id="defaultForm-email" class="form-control validate" placeholder="email" required>
+            </div>
+            <div class="md-form mb-4">
+              <input type="password" id="defaultForm-password" class="form-control validate" placeholder="password"
+                required>
+            </div>
+            <div class="md-form mb-4">
+              <input type="number" min="1" max="150" id="defaultForm-age" class="form-control validate"
+                placeholder="age" required>
+            </div>
+            <div class="md-form mb-4">
+              <input type="" min="00000" max="99999" id="defaultForm-zip" class="form-control validate"
+                placeholder="zip" pattern="[0-9]*" required>
+            </div>
           </div>
           <div id="email" class="md-form mb-4">
             <input type="email" id="defaultForm-email" class="form-control validate" placeholder="email" required>
@@ -74,120 +93,132 @@
       </form>
     </div>
   </div>
-</div>
 
+  <!--  Bryan's Card HTML  -->
   <!-- Card HTML -->
   <div class="container-fluid">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="display: none">
-        <!-- Desktop Cards -->
-        <div class="row w-100 mx-auto" id="row1">
-          <!-- Desktop Card 1 -->
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top img-fluid insignia" id="dLogo0" src="#" alt="Card image cap">
-              <img class="card-img-top img-fluid areaEnvD" id="dEnv0" src="" alt="Environment">
-              <div class="card-body">
-                <h4 class="card-title" id="dTitle0"></h4>
-                <div class="scrolling-wrapper card-text dForecast" id="dWeather0"></div>
-                <div class="scrolling-wrapper card-text" id="dYelp0"></div>
-                <div class="scrolling-wrapper card-text" id="dSchool0"></div>
-                <div class="scrolling-wrapper card-text" id="dDemDetails0"></div>
-                <div class="card-text dForecast" id="dSchool0"></div>                
-              </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="display: none">
+        <input onclick="reset()" class="sticky-top" type="image" class="img-fluid delete" id="reset" src="./assets/images/reset.svg" width="60px auto">
+
+      <!-- Desktop Cards -->
+      <div class="row w-100 mx-auto" id="row1">
+        <!-- Desktop Card 1 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top img-fluid insignia" id="dLogo0" src="http://placehold.it/800x600/f44242/fff"
+              alt="Card image cap">
+            <img class="card-img-top img-fluid areaEnvD" id="dEnv0" src="" alt="Environment">
+            <div class="card-body">
+              <h4 class="card-title" id="dTitle0"></h4>
+              <div class="scrolling-wrapper card-text dForecast" id="dWeather0"></div>
+              <div class="scrolling-wrapper card-text" id="dYelp0"></div>
+              <div class="scrolling-wrapper card-text" id="dSchool0"></div>
+              <div class="scrolling-wrapper card-text" id="dDemDetails0"></div>
+              <div class="card-text dForecast" id="dSchool0"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Desktop Card 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top img-fluid insignia" id="dLogo1" src="http://placehold.it/800x600/418cf4/fff"
+              alt="Card image cap">
+            <img class="card-img-top img-fluid areaEnvD areaEnv" id="dEnv1" src="" alt="Environment">
+            <div class="card-body">
+              <h4 class="card-title" id="dTitle1"></h4>
+              <div class="scrolling-wrapper card-text dForecast" id="dWeather1"></div>
+              <div class="scrolling-wrapper card-text" id="dYelp1"></div>
+              <div class="scrolling-wrapper card-text" id="dSchool1"></div>
+              <div class="scrolling-wrapper card-text" id="dDemDetails1"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Desktop Card 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img class="card-img-top img-fluid insignia" id="dLogo2" src="http://placehold.it/800x600/3ed846/fff"
+              alt="Card image cap">
+            <img class="card-img-top img-fluid areaEnvD areaEnv" id="dEnv2" src="" alt="Environment">
+            <div class="card-body">
+              <h4 class="card-title" id="dTitle2"></h4>
+              <div class="scrolling-wrapper card-text dForecast" id="dWeather2"></div>
+              <div class="scrolling-wrapper card-text" id="dYelp2"></div>
+              <div class="scrolling-wrapper card-text" id="dSchool2"></div>
+              <div class="scrolling-wrapper card-text" id="dDemDetails2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Carousel Cards -->
+      <div class="carousel-inner row w-100 mx-auto" id="row2">
+        <!-- Carousel Card 1 -->
+        <div class="carousel-item col-md-4 active">
+
+          <div class="card">
+            <img class="card-img-top img-fluid insignia" id="mLogo0" src="http://placehold.it/800x600/f44242/fff"
+              alt="Card image cap">
+            <img class="card-img-top img-fluid areaEnvM areaEnv" id="mEnv0" src="" alt="Environment">
+            <div class="card-body">
+              <h4 class="card-title" id="mTitle0"></h4>
+              <div class="scrolling-wrapper card-text mForecast" id="mWeather0"></div>
+              <div class="scrolling-wrapper card-text" id="mYelp0"></div>
+              <div class="scrolling-wrapper card-text" id="mSchool0"></div>
+              <!-- <div class="card-text" id="mSchool0"></div> -->
+              <div class="scrolling-wrapper" id="mDemDetails0"></div>
+              <div class="card-text" id="mSchool0"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel Card 2 -->
+        <div class="carousel-item col-md-4">
+          <div class="card">
+            <img class="card-img-top img-fluid insignia" id="mLogo1" src="http://placehold.it/800x600/418cf4/fff"
+              alt="Card image cap">
+            <img class="card-img-top img-fluid areaEnvM areaEnv" id="mEnv1" src="" alt="Environment">
+            <div class="card-body">
+              <h4 class="card-title" id="mTitle1"></h4>
+              <div class="scrolling-wrapper card-text mForecast" id="mWeather1"></div>
+              <div class="scrolling-wrapper card-text" id="mYelp1"></div>
+              <div class="scrolling-wrapper card-text" id="mSchool1"></div>
+              <div class="scrolling-wrapper card-text" id="mDemDetails1"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel Card 3 -->
+        <div class="carousel-item col-md-4">
+          <div class="card">
+            <img class="card-img-top img-fluid insignia" id="mLogo2" src="http://placehold.it/800x600/3ed846/fff"
+              alt="Card image cap">
+            <img class="card-img-top img-fluid areaEnvM areaEnv" id="mEnv2" src="" alt="Environment">
+            <div class="card-body">
+              <h4 class="card-title" id="mTitle2"></h4>
+              <div class="scrolling-wrapper card-text mForecast" id="mWeather2"></div>
+              <div class="scrolling-wrapper card-text" id="mYelp2"></div>
+              <div class="scrolling-wrapper card-text" id="mSchool2"></div>
+              <div class="scrolling-wrapper card-text" id="mDemDetails2"></div>
 
             </div>
           </div>
-          <!-- Desktop Card 2 -->
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top img-fluid insignia" id="dLogo1" src="#" alt="Card image cap">
-              <img class="card-img-top img-fluid areaEnvD" id="dEnv1" src="" alt="Environment">
-              <div class="card-body">
-                <h4 class="card-title" id="dTitle1"></h4>
-                <div class="scrolling-wrapper card-text dForecast" id="dWeather1"></div>
-                <div class="scrolling-wrapper card-text" id="dYelp1"></div>
-                <div class="scrolling-wrapper card-text" id="dSchool1"></div>
-                <div class="scrolling-wrapper card-text" id="dDemDetails1"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Desktop Card 3 -->
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top img-fluid insignia" id="dLogo2" src="#" alt="Card image cap">
-              <img class="card-img-top img-fluid areaEnvD" id="dEnv2" src="" alt="Environment">
-              <div class="card-body">
-                <h4 class="card-title" id="dTitle2"></h4>
-                <div class="scrolling-wrapper card-text dForecast" id="dWeather2"></div>
-                <div class="scrolling-wrapper card-text" id="dYelp2"></div>
-                <div class="scrolling-wrapper card-text" id="dSchool2"></div>
-                <div class="scrolling-wrapper card-text" id="dDemDetails2"></div>
-              </div>
-            </div>
-          </div>
         </div>
-  
-        <!-- Mobile Carousel Cards -->
-        <div class="carousel-inner row w-100 mx-auto" id="row2">
-          <!-- Carousel Card 1 -->
-          <div class="carousel-item col-md-4 active">
-            
-            <div class="card">
-              <img class="card-img-top img-fluid insignia" id="mLogo0" src="#" alt="Card image cap">
-              <img class="card-img-top img-fluid areaEnvM" id="mEnv0" src="" alt="Environment">
-              <div class="card-body">
-                <h4 class="card-title" id="mTitle0"></h4>
-                <div class="scrolling-wrapper card-text mForecast" id="mWeather0"></div>
-                <div class="scrolling-wrapper card-text" id="mYelp0"></div>
-                <div class="scrolling-wrapper card-text" id="mSchool0"></div>
-                <div class="scrolling-wrapper" id="mDemDetails0"></div>
-                <div class="card-text" id="mSchool0"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Carousel Card 2 -->
-          <div class="carousel-item col-md-4">
-            <div class="card">
-              <img class="card-img-top img-fluid insignia" id="mLogo1" src="#" alt="Card image cap">
-              <img class="card-img-top img-fluid areaEnvM" id="mEnv1" src="" alt="Environment">
-              <div class="card-body">
-                <h4 class="card-title" id="mTitle1"></h4>
-                <div class="scrolling-wrapper card-text mForecast" id="mWeather1"></div>
-                <div class="scrolling-wrapper card-text" id="mYelp1"></div>
-                <div class="scrolling-wrapper card-text" id="mSchool1"></div>
-                <div class="scrolling-wrapper card-text" id="mDemDetails1"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Carousel Card 3 -->
-          <div class="carousel-item col-md-4">
-            <div class="card">
-              <img class="card-img-top img-fluid insignia" id="mLogo2" src="#" alt="Card image cap">
-              <img class="card-img-top img-fluid areaEnvM" id="mEnv2" src="" alt="Environment">
-              <div class="card-body">
-                <h4 class="card-title" id="mTitle2"></h4>
-                <div class="scrolling-wrapper card-text mForecast" id="mWeather2"></div>
-                <div class="scrolling-wrapper card-text" id="mYelp2"></div>
-                <div class="scrolling-wrapper card-text" id="mSchool2"></div>
-                <div class="scrolling-wrapper card-text" id="mDemDetails2"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-  
-        </div>
-        <!-- Carousel Buttons -->
-        <a class="carousel-control-prev a" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next a" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
-    </div>
+
+
+
+    
+    <!-- Carousel Buttons -->
+    <a class="carousel-control-prev a" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next a" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
     crossorigin="anonymous"></script>
