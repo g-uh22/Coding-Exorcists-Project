@@ -770,7 +770,7 @@ const nearbyRestaurants = (lat, lon, card) => {
             document.querySelector(`#mYelp${card}`).innerHTML = `
                                 <div class="card scrollContent" style="width: 18rem;">
                                  <div class="card-body text-center">
-                                 <h5><a class="card-title text-bold" a href="${url[0]}">${name[0]} </a></h5>
+                                 <h5><a class="card-title text-bold" href="${url[0]}">${name[0]} </a></h5>
                                  <p class="text-muted">${type[0]}</p>
                                  <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[0]} out of 5</h9>
                                  <br>
@@ -786,7 +786,7 @@ const nearbyRestaurants = (lat, lon, card) => {
 
                                 <div class="card scrollContent" style="width: 18rem;">
                                     <div class="card-body text-center">
-                                    <h5><a class="card-title text-bold" a href="${url[1]}">${name[1]} </a></h5>
+                                    <h5><a class="card-title text-bold" href="${url[1]}">${name[1]} </a></h5>
                                     <p><h9 class="text-muted">${type[1]}</p></h9>
                                     <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[1]} out of 5</h9>
                                     <br>
@@ -802,7 +802,7 @@ const nearbyRestaurants = (lat, lon, card) => {
 
                             <div class="card scrollContent" style="width: 18rem;">
                                  <div class="card-body text-center">
-                                 <h5><a class="card-title text-bold" a href="${url[2]}">${name[2]} </a></h5>
+                                 <h5><a class="card-title text-bold" href="${url[2]}">${name[2]} </a></h5>
                                  <p><h9 class="text-muted">${type[2]}</p></h9>
                                  <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[2]} out of 5</h9>
                                  <br>
@@ -820,7 +820,7 @@ const nearbyRestaurants = (lat, lon, card) => {
                          <div class="card scrollContent" style="width: 18rem;">
 <
                           <div class="card-body text-center">
-                          <h5><a class="card-title text-bold" a href="${url[0]}">${name[0]} </a></h5>
+                          <h5><a class="card-title text-bold"  target="_blank" href="${url[0]}">${name[0]} </a></h5>
                           <p><h9 class="text-muted">${type[0]}</p></h9>
                           <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[0]} out of 5</h9>
                           <br>
@@ -835,7 +835,7 @@ const nearbyRestaurants = (lat, lon, card) => {
 
                          <div class="card scrollContent" style="width: 18rem;">
                              <div class="card-body text-center">
-                             <h5><a class="card-title text-bold" a href="${url[1]}">${name[1]} </a></h5>
+                             <h5><a class="card-title text-bold" href="${url[1]}">${name[1]} </a></h5>
                              <p><h9 class="text-muted">${type[1]}</p></h9>
                           <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[1]} out of 5</h9>
                           <p><b>Price:</b>${price[1]}</p>
@@ -849,7 +849,7 @@ const nearbyRestaurants = (lat, lon, card) => {
 
                      <div class="card scrollContent" style="width: 18rem;">
                           <div class="card-body text-center">
-                          <h5><a class="card-title text-bold" a href="${url[2]}">${name[2]} </a></h5>
+                          <h5><a class="card-title text-bold" href="${url[2]}">${name[2]} </a></h5>
                           <p><h9 class="text-muted">${type[2]}</p></h9>
                           <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[2]} out of 5</h9>
                           <br>
