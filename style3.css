@@ -42,8 +42,10 @@ body {
   opacity: 0.95;
 }
 
+/* Fixed width & padding  */
 /* .modal-dialog-centered {
 border-radius: 500px;
+>>>>>>> origin
 max-width: 400px;
 min-width: 300px;
 height: auto;
@@ -90,7 +92,6 @@ color: white;
   margin: 0 auto;
   text-align: center;
 } */
-
 
 /* fonts */
 
@@ -140,6 +141,8 @@ input[type=submit] {
 }
 
 .autocomplete-items {
+  max-height: 50vh;
+  overflow-y:scroll;
   position: absolute;
   border: 1px solid #d4d4d4;
   border-bottom: none;
@@ -178,21 +181,55 @@ input[type=submit] {
   /* opacity: 0.4; */
 }
 
-/*   background-color: DodgerBlue !important;
-  color: #ffffff;
-} */
+/* https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
+/* scrolling styling */
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch !important;
+}
+  .scrollContent {
+    flex: 0 0 auto;
+    margin: 5px;
+    /* display: inline-block; */
+  }
+
+  .scrolling-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .info{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .sectionTitle{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .areaEnvM {
+    width: 75px;
+    position: absolute;
+    z-index: 1;
+    right: 16px;
+    top: 180px;
+}
+
+.areaEnvD {
+  width: 75px;
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  top: 223px;
+}
 
 
+/* .insignia{
 
+}
 
-
-
-
-
-
-
-
-
+ */
 
 
 
@@ -303,33 +340,3 @@ input[type=submit] {
     visibility: visible;
   }
 }
-
-
-
-/* styling for yelp */
-/* https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
-/* scrolling styling */
-.scrolling-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch !important;
-}
-  .scrollContent {
-    flex: 0 0 auto;
-    margin: 5px;
-    /* display: inline-block; */
-  }
-
-  .scrolling-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-  .info{
-    word-wrap: break-word;
-    white-space: pre-wrap;
-  }
-
-  .sectionTitle{
-    justify-content: center;
-    align-items: center;
-  }
