@@ -51,11 +51,12 @@ body {
   border-radius: 10px; 
   font-family: 'muli'sans-serif; 
   font-weight: bold; 
+
   text-align: center;
 }
 
 #threeSchools {
-  background-color:#17141dae;
+  background-color: #17141dae;
   box-shadow: -1rem 0 3rem #000;
   color: white;
   height: auto;
@@ -102,8 +103,10 @@ body {
   margin-bottom: 100px;
   margin-left: 100px;
   margin-right: 100px;
+
   background-color: rgba(0, 0, 0, 0.703); */
 /* } */
+
 
 .modal-header {
   background-color: rgba(135, 206, 250, 0.429);
@@ -411,7 +414,7 @@ label:hover :checked + .card {
 } */
 
 /* HAMZA */
-* { box-sizing: border-box; }
+
 body {
   font: 16px Arial;
 }
@@ -529,7 +532,11 @@ input[type=submit] {
 }
 
 /* Bryan's Card CSS */
-/* CSS for the Cards */
+
+
+/* CSS for the Cards
+A lot of help from https://codepen.io/kreigd/pen/ybYNoN */
+
 @media (max-width: 768px) {
   #row1 {
     display: none;
@@ -590,4 +597,37 @@ input[type=submit] {
 
 .card-title {
   font-family: 'Muli', sans-serif;
+}
+
+/* styling for yelp */
+
+/* https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
+
+/* scrolling styling */
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.scrollContent {
+  flex: 0 0 auto;
+  margin: 5px;
+  /* display: inline-block; */
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.info {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.sectionTitle {
+  justify-content: center;
+  align-items: center;
 }

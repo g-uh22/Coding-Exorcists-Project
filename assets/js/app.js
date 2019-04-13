@@ -168,13 +168,13 @@ const genCardInfo = () => {
     let school1 = selectedSchools[1].dataset.schoolidnum
     let school2 = selectedSchools[2].dataset.schoolidnum
     let progOfInt = document.querySelector(`#selectedProgram`).dataset.programid
-
     let card = 0
     fetch(`https://api.data.gov/ed/collegescorecard/v1/schools?id=${school0},${school1},${school2}&_fields=location.lat,location.lon,id,school.name,school.city,school.zip,school.locale,latest.academics.program.bachelors.${progOfInt},latest.academics.program_percentage.${progOfInt},school.minority_serving.hispanic,latest.admissions.admission_rate.overall,latest.student.size,latest.student.size,latest.cost.attendance.academic_year,latest.student.demographics.female_share,latest.student.demographics.first_generation,latest.student.demographics.race_ethnicity.white,latest.student.demographics.race_ethnicity.black,latest.student.demographics.race_ethnicity.hispanic,latest.student.demographics.race_ethnicity.asian,latest.student.demographics.race_ethnicity.aian,latest.student.demographics.race_ethnicity.nhpi,latest.student.demographics.race_ethnicity.asian_pacific_islander,school.school_url&_per_page=32&api_key=IP4euHv2WjsUP1jrD2yCi4dQtC4B3jOARrFVQiLL`)
         .then(r => r.json())
         .then(({ results }) => {
 
             results.forEach(school => {
+                let id = school.id
                 let lat = school["location.lat"]
                 let lon = school["location.lon"]
                 let city = school["school.city"]
@@ -211,6 +211,12 @@ const genCardInfo = () => {
                 //////////////////////////////////////////////////
                 /////CALL WEATHER AND YELP API FUNCTIONS HERE/////
                 //////////////////////////////////////////////////
+
+                weather(lat, lon, card)
+                nearbyRestaurants(lat, lon, card)
+
+
+                //ENVIRONMENT IMAGES
 
 
                 weather(lat, lon, card)
@@ -478,13 +484,267 @@ const genCardInfo = () => {
 
             });
 
+                if (size <= 13) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/cityscape.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/cityscape.svg")
+                }
+                if (size > 13 && size <= 23) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/home.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/home.svg")
+
+                }
+                if (size > 23 && size <= 33) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/village.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/village.svg")
+                }
+                if (size > 33 && size <= 43) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/fields.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/fields.svg")
+
+                }
+
+                //CARDS: SCHOOL INFORMATION
+                //PROGRAM INFO
+                document.querySelector(`#mTitle${card}`).innerHTML = name
+                document.querySelector(`#dTitle${card}`).innerHTML = name
+
+                switch (progOffered) {
+                    case 0:
+                        progOfferedText = "This program is not offered here."
+                        document.querySelector(`#mSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>`
+
+                        document.querySelector(`#dSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>`
+                    case 1:
+                        progOfferedText = "This Program is offfered here!"
+                        document.querySelector(`#mSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>
+                        
+                        <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percGrad}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of students that graduated from this program last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${admRate}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of applicants that were accepted to the University last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${cost}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Approximate annual cost of attending this institution including tuition, housing, textbooks and supplies, and food.</p>
+                        </div>
+                      </div>
+
+                        `
+
+                        document.querySelector(`#dSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>
+                        
+                        <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percGrad}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of students that graduated from this program last year.</p>
+                        </div>
+                      </div>
+                        
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${admRate}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of applicants that were accepted to the University last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${cost}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Approximate annual cost of attending this institution including tuition, housing, textbooks and supplies, and food.</p>
+                        </div>
+                      </div>
+
+                        `
+                }
+
+                document.querySelector(`#mDemDetails${card}`).innerHTML = `
+                <h3 class="sectionTitle align-middle">Demographics Snapshot:</h3>
+                <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percFem}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of student body that is female.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${firstGen}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students who are the first in their families to attend higher education.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${hispanic}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hispanic.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${black}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of African descent.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${aian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as American Indian or Alaskan Native.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${white}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of Students who are Caucasian.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${asian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian background.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${api}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian or Pacific Islander heritage.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${nhpi}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hawaian or Pacific Islander.</p>
+                      </div>
+                    </div>
+
+                `
+
+
+                document.querySelector(`#dDemDetails${card}`).innerHTML = `
+                <h3 class="sectionTitle align-middle">Demographics Snapshot:</h3>
+                <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percFem}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of student body that is female.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${firstGen}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students who are the first in their families to attend higher education.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${hispanic}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hispanic.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${black}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of African descent.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${aian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as American Indian or Alaskan Native.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${white}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of Students who are Caucasian.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${asian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian background.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${api}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian or Pacific Islander heritage.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${nhpi}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hawaian or Pacific Islander.</p>
+                      </div>
+                    </div>
+
+                `
+
+
+                //SCHOOL IMAGES 
+                document.querySelector(`#mLogo${card}`).setAttribute("src", `./assets/images/${id}.png`)
+                document.querySelector(`#dLogo${card}`).setAttribute("src", `./assets/images/${id}.png`)
+
+                card++
+
+            });
+
         })
         .catch(e => console.error(e))
 
 }
 
-
-
+//WEATHER API
 
 const weather = (lat, lon, card) => {
 
@@ -550,19 +810,7 @@ document.addEventListener('click', e => {
     }
 })
 
-////REMOVED:////
-//personal_culinary
-//military
-//theology_religious_vocation"
-//science_technology
-//construction
-//mechanic_repair_technology"
-//precision_production
-//communications tech
-//legal
-//library
-
-
+//AUTOCOMPLETE
 const autocomplete = (inputField, searchArray, key) => {
 
     /*the autocomplete function takes two arguments,
@@ -624,7 +872,6 @@ const autocomplete = (inputField, searchArray, key) => {
                     <p>${e.currentTarget.getElementsByTagName("input")[0].value}</p>
                     <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage.svg" width="40px auto">
                     `
-
                         document.querySelector('#threeSchools').appendChild(selectedSchool)
 
                         if (document.querySelector('#threeSchools').childElementCount === 3) {
@@ -753,6 +1000,7 @@ $('.carousel').carousel({
     interval: false
 })
 
+//YELP API
 
 const API_KEY = `iVz6PibRAoLRoTSl56wquqWLvwwmn2iiP4Wo1iQ5s0mMnZCWH-z1fJxqUrJ28RPlnzVPnkwGmTuccBdYABv17K_608JxM8HAmq8syuOHiB59yKC8Pb5-djqI6KWfXHYx`;
 let queryURL
@@ -766,6 +1014,15 @@ const nearbyRestaurants = (lat, lon, card) => {
     let rating = []
     let name = []
     let url = []
+    let price = []
+    let address1 = []
+    let address2 = []
+    let city = []
+    let state = []
+    let zipcode = []
+    let type = []
+    // let image = []
+
 
     fetch(queryURL, {
 
@@ -785,70 +1042,112 @@ const nearbyRestaurants = (lat, lon, card) => {
                 rating.push(businesses[i].rating)
                 name.push(businesses[i].name)
                 url.push(businesses[i].url)
+                price.push(businesses[i].price)
+                address1.push(businesses[i].location.address1)
+                address2.push(businesses[i].location.address2)
+                city.push(businesses[i].location.city)
+                state.push(businesses[i].location.state)
+                zipcode.push(businesses[i].location.zip_code)
+                type.push(businesses[i].categories[0].title)
+                // image.push(businesses[i].image_url)
 
             }
-
+            //CARDS: YELP INFORMATION
             document.querySelector(`#mYelp${card}`).innerHTML = `
                                 <div class="card scrollContent" style="width: 18rem;">
-                                 <div class="card-body">
-                                        <h5 class="card-title">${name[0]}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">${rating[0]}</h6>
-                                         <a class="info" href="${url[0]}">${name[0]}</a>
-                                    </div>
+                                 <div class="card-body text-center">
+                                 <h5><a class="card-title text-bold" a href="${url[0]}">${name[0]} </a></h5>
+                                 <p class="text-muted">${type[0]}</p>
+                                 <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[0]} out of 5</h9>
+                                 <br>
+                                  <p><b>Price:</b> ${price[0]}</p>
+                                 <p>
+                                 ${address1[0]} ${address2[0]}<br>
+                                ${city[0]}, ${state[0]}<br>
+                                 ${zipcode[0]}
+                                 </p>
+
+                                   </div>
                                 </div>
 
                                 <div class="card scrollContent" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">${name[1]}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">${rating[1]}</h6>
-                                         <a class="info" href="${url[1]}">${name[1]}</a>
+                                    <div class="card-body text-center">
+                                    <h5><a class="card-title text-bold" a href="${url[1]}">${name[1]} </a></h5>
+                                    <p><h9 class="text-muted">${type[1]}</p></h9>
+                                    <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[1]} out of 5</h9>
+                                    <br>
+                                     <p><b>Price:</b>${price[1]}</p>
+                                    <p>
+                                    ${address1[1]} ${address2[1]}<br>
+                                   ${city[1]}, ${state[1]}<br>
+                                    ${zipcode[1]}
+                                    </p>
+                          </p>
                                      </div>
                                  </div>
 
                             <div class="card scrollContent" style="width: 18rem;">
-                                 <div class="card-body">
-                                     <h5 class="card-title">${name[2]}</h5>
-                                     <h6 class="card-subtitle mb-2 text-muted">${rating[2]}</h6>
-                                     <a class="info" href="${url[2]}">${name[2]}</a>
+                                 <div class="card-body text-center">
+                                 <h5><a class="card-title text-bold" a href="${url[2]}">${name[2]} </a></h5>
+                                 <p><h9 class="text-muted">${type[2]}</p></h9>
+                                 <h9 class="card-subtitle mb-2"><b>Rating:</b> ${rating[2]} out of 5</h9>
+                                 <br>
+                                  <p><b>Price:</b> ${price[2]}</p>
+                                 <p>
+                                 ${address1[2]} ${address2[2]}<br>
+                                ${city[2]}, ${state[2]}<br>
+                                 ${zipcode[2]}
+                                 </p>
                                 </div>
                             </div>
                          `
 
             document.querySelector(`#dYelp${card}`).innerHTML = `
                          <div class="card scrollContent" style="width: 18rem;">
-                          <div class="card-body">
-                                 <h5 class="card-title">${name[0]}</h5>
-                                 <h6 class="card-subtitle mb-2 text-muted">${rating[0]}</h6>
-                                  <a class="info" href="${url[0]}">${name[0]}</a>
+<
+                          <div class="card-body text-center">
+                          <h5><a class="card-title text-bold" a href="${url[0]}">${name[0]} </a></h5>
+                          <p><h9 class="text-muted">${type[0]}</p></h9>
+                          <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[0]} out of 5</h9>
+                          <br>
+                          <p><b>Price:</b>${price[0]}</p>
+                          <p>
+                          ${address1[0]} ${address2[0]}<br>
+                          ${city[0]}, ${state[0]}<br>
+                          ${zipcode[0]}
+                          </p>
                              </div>
                          </div>
 
                          <div class="card scrollContent" style="width: 18rem;">
-                             <div class="card-body">
-                                 <h5 class="card-title">${name[1]}</h5>
-                                 <h6 class="card-subtitle mb-2 text-muted">${rating[1]}</h6>
-                                  <a class="info" href="${url[1]}">${name[1]}</a>
+                             <div class="card-body text-center">
+                             <h5><a class="card-title text-bold" a href="${url[1]}">${name[1]} </a></h5>
+                             <p><h9 class="text-muted">${type[1]}</p></h9>
+                          <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[1]} out of 5</h9>
+                          <p><b>Price:</b>${price[1]}</p>
+                          <p>
+                          ${address1[1]} ${address2[1]}<br>
+                          ${city[1]}, ${state[1]}<br>
+                          ${zipcode[1]}
+                          </p>
                               </div>
                           </div>
 
                      <div class="card scrollContent" style="width: 18rem;">
-                          <div class="card-body">
-                              <h5 class="card-title">${name[2]}</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">${rating[2]}</h6>
-                              <a class="info" href="${url[2]}">${name[2]}</a>
+                          <div class="card-body text-center">
+                          <h5><a class="card-title text-bold" a href="${url[2]}">${name[2]} </a></h5>
+                          <p><h9 class="text-muted">${type[2]}</p></h9>
+                          <h9 class="card-subtitle mb-2 text-muted"><b>Rating:</b> ${rating[2]} out of 5</h9>
+                          <br>
+                          <p><b>Price:</b>${price[2]}</p>
+                          <p>
+                          ${address1[2]} ${address2[2]}<br>
+                          ${city[2]}, ${state[2]}<br>
+                          ${zipcode[2]}
+                          </p>
                          </div>
                      </div>
                   `
 
         })
 }
-
-
-
-// var card = document.querySelector('.cardFlipper');
-// card.addEventListener( 'click', e => {
-//     console.log(e.target.className)
-//     // if (e.target.className==='cardFlipper'){
-//         card.classList.toggle('is-flipped');
-//     // }
-// });
