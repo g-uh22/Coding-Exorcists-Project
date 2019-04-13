@@ -16,15 +16,41 @@ body {
   padding-left: 2.375rem;
 }
 
-
-/* .modal-dialog-centered {
-  border-radius: 500px;
-  max-width: 300px;
-  min-width: 200px;
-  height: auto;
-  margin: 0 auto;
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
   text-align: center;
-} */
+  pointer-events: none;
+  color: #aaa;
+}
+
+.has-search {
+  margin: 0 auto;
+  /* margin-top: 50px;
+  margin-bottom: 25px; */
+  /* width: 600px; */
+}
+
+#selectedProgram {
+  background-color: #17141d;
+  box-shadow: -1rem 0 3rem #000;
+  color: white;
+  padding: 10px;
+  height: auto;
+  width: 200px;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  font-family: 'muli'sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
 
 .has-search .form-control-feedback {
   position: absolute;
@@ -85,26 +111,13 @@ body {
   height: 190px;
   width: 180px;
   display: block;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
   margin-bottom: 25px;
   opacity: 1;
 }
-
-/* .logoBackground { */
-  /* background-color: rgb(255, 179, 37); */
-  /* height: 210px;
-  width: 195px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin-bottom: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
-  background-color: rgba(0, 0, 0, 0.703); */
-/* } */
 
 .modal-header {
   background-color: rgba(135, 206, 250, 0.429);
@@ -134,19 +147,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* .container {
-  border-radius: 5px;
-  background-color: transparent;
-  padding: 20px;
-  text-align: center;
-} */
-
-
-/* .autocomplete {
-  margin: 0 auto;
-  text-align: center;
-} */
-
 /* fonts */
 
 /* font-family: 'Bree Serif', serif;
@@ -154,14 +154,10 @@ font-family: 'Patua One', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Muli', sans-serif; */
 
-* {
-  box-sizing: border-box;
-}
-
-
-
 /* HAMZA */
-* { box-sizing: border-box; }
+
+/* * { box-sizing: border-box; } */
+
 body {
   font: 16px Arial;
 }
@@ -222,13 +218,11 @@ input[type=submit] {
 
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
+  background-color: DodgerBlue !important;
+  color: #ffffff;
 }
 
-
-.disabled{
+.disabled {
   pointer-events: none;
   color: gray;
   background-color: rgb(165, 160, 160);

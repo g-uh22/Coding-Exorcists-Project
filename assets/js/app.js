@@ -271,24 +271,21 @@ const genCardInfo = () => {
                         
                         <div class="card scrollContent" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">${percGrad}%</h5>
-                    
+                          <h5 class="card-title">${percGrad}%</h5>         
                           <p class="info">Percent of students that graduated from this program last year.</p>
                         </div>
                       </div>
 
                       <div class="card scrollContent" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">${admRate}%</h5>
-                    
+                          <h5 class="card-title">${admRate}%</h5>                    
                           <p class="info">Percent of applicants that were accepted to the University last year.</p>
                         </div>
                       </div>
 
                       <div class="card scrollContent" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">${cost}</h5>
-                    
+                          <h5 class="card-title">${cost}</h5>                  
                           <p class="info">Approximate annual cost of attending this institution including tuition, housing, textbooks and supplies, and food.</p>
                         </div>
                       </div>
@@ -324,8 +321,6 @@ const genCardInfo = () => {
 
                         `
                 }
-
-
 
                 document.querySelector(`#mDemDetails${card}`).innerHTML = `
                 <h3 class="sectionTitle align-middle">Demographics Snapshot:</h3>
@@ -745,8 +740,6 @@ $('.carousel').carousel({
 })
 
 
-
-
 const API_KEY = `iVz6PibRAoLRoTSl56wquqWLvwwmn2iiP4Wo1iQ5s0mMnZCWH-z1fJxqUrJ28RPlnzVPnkwGmTuccBdYABv17K_608JxM8HAmq8syuOHiB59yKC8Pb5-djqI6KWfXHYx`;
 let queryURL
 let urlYelp
@@ -779,7 +772,7 @@ const nearbyRestaurants = (lat, lon, card) => {
         }
     }).then(r => r.json())
         .then(({ businesses }) => {
-
+            
             for (let i = 0; i < 3; i++) {
 
 
