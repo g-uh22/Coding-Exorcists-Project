@@ -1,7 +1,7 @@
 body {
   background-image: url('../images/study.png');
   /* background: linear-gradient(110deg,lightskyblue 60%, lightblue 60%); */
-  height: auto;
+  height: 100%;
   width: auto;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -12,14 +12,19 @@ body {
   background-attachment: fixed;
 }
 
-/* .grid-container {
-  display: grid;
-  grid-gap: 50px;
-} */
-
 .has-search .form-control {
   padding-left: 2.375rem;
 }
+
+
+/* .modal-dialog-centered {
+  border-radius: 500px;
+  max-width: 300px;
+  min-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+} */
 
 .has-search .form-control-feedback {
   position: absolute;
@@ -33,27 +38,20 @@ body {
   color: #aaa;
 }
 
-.has-search {
-  margin: 0 auto;
-  /* margin-top: 50px;
-  margin-bottom: 25px; */
-  /* width: 600px; */
-}
+#selectedProgram { 
+  background-color:#17141dae;
+  box-shadow: -1rem 0 3rem #000; 
+  color: white; 
+  height: auto; 
+  width: 200px; 
+  align-items: center; 
+  margin: 0 auto; 
+  margin-top: 25px; 
+  margin-bottom: 25px; 
+  border-radius: 10px; 
+  font-family: 'muli'sans-serif; 
+  font-weight: bold; 
 
-#selectedProgram {
-  background-color: #17141d;
-  box-shadow: -1rem 0 3rem #000;
-  color: white;
-  padding: 10px;
-  height: auto;
-  width: 200px;
-  align-items: center;
-  margin: 0 auto;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  border-radius: 10px;
-  font-family: 'muli'sans-serif;
-  font-weight: bold;
   text-align: center;
 }
 
@@ -61,7 +59,6 @@ body {
   background-color: #17141dae;
   box-shadow: -1rem 0 3rem #000;
   color: white;
-  padding: 10px;
   height: auto;
   width: 310px;
   margin: 0 auto;
@@ -80,33 +77,24 @@ body {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  margin-left: 600px;
+  margin-left: 125px;
+  margin-bottom: 20px;
 }
-
-/* .right {
-  margin: 0 auto;
-  text-align: center;
-  margin-left: 110px;
-  margin-right: 20px;
-  margin-bottom: 25px;
-  width: 500px;
-} */
 
 .logo {
-  min-height: 100px;
-  min-width: 100px;
-  height: auto;
+  height: 190px;
   width: 180px;
   display: block;
-  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  content: center top;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  opacity: 1;
 }
 
-.logoBackground {
+/* .logoBackground { */
   /* background-color: rgb(255, 179, 37); */
-  height: 210px;
+  /* height: 210px;
   width: 195px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -115,26 +103,17 @@ body {
   margin-bottom: 100px;
   margin-left: 100px;
   margin-right: 100px;
-  background-color: rgba(0, 0, 0, 0.703);
-}
 
-/* Fixed width & padding  */
+  background-color: rgba(0, 0, 0, 0.703); */
+/* } */
 
-/* .modal-dialog-centered {
-border-radius: 500px;
-max-width: 400px;
-min-width: 300px;
-height: auto;
-margin: auto;
-padding: 10px;
-} */
 
 .modal-header {
-  background-color: lightskyblue;
+  background-color: rgba(135, 206, 250, 0.429);
 }
 
 .modal-footer {
-  background-color: lightblue;
+  background-color: rgba(135, 206, 250, 0.429);
   color: white;
 }
 
@@ -157,6 +136,206 @@ padding: 10px;
   font-family: 'Poppins', sans-serif;
 }
 
+.carousel-inner{
+  background-color: transparent;
+}
+
+ /* .card-body {
+  background-color:#17141dd8;
+  
+ }
+ /* .carousel-inner {
+  background-color:#17141dae;
+ } */
+
+ .carousel-item {
+   padding-bottom: 5px;
+ }
+ /* DESKTOP CSS */
+ #dYelp0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dYelp1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dYelp2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ 
+ #dSchool0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 12px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dSchool1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dSchool2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ 
+ #dDemDetails0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #dDemDetails1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ 
+ #dDemDetails2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ /* MOBILE CSS */
+ #mYelp0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mYelp1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ #mYelp2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mSchool0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 12px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mSchool1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mSchool2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ 
+ #mDemDetails0 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+
+ #mDemDetails1 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+ 
+ #mDemDetails2 {
+  background-color:rgba(232, 227, 227, 0.868);
+  box-shadow: 10px 10px 8px #888888;
+  font-family: 'Poppins';
+  font-size: 16px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding-left: 5px;
+ }
+  
+  
+
+
+
 /* fonts */
 
 /* font-family: 'Bree Serif', serif;
@@ -164,9 +343,77 @@ font-family: 'Patua One', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Muli', sans-serif; */
 
-/* HAMZA */
+/* Flip Cards */
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-/* * { box-sizing: border-box; } */
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.cardFlipper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+    .cardFlipper div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #FFF;
+        text-align: center;
+        line-height: 200px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+
+    .cardFlipper .back {
+        background: #222;
+        color: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+
+label:hover .cardFlipper {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+.flipper {
+    display: none;
+}
+
+:checked + .cardFlipper {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+} */
+
+/* HAMZA */
 
 body {
   font: 16px Arial;
@@ -201,6 +448,8 @@ input[type=submit] {
 }
 
 .autocomplete-items {
+  max-height: 50vh;
+  overflow-y:scroll;
   position: absolute;
   border: 1px solid #d4d4d4;
   border-bottom: none;
@@ -226,44 +475,64 @@ input[type=submit] {
 
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
+
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
 }
 
-.disabled {
+
+.disabled{
   pointer-events: none;
   color: gray;
   background-color: rgb(165, 160, 160);
   /* opacity: 0.4; */
 }
 
-/*   background-color: DodgerBlue !important;
-  color: #ffffff;
-} */
-
+/* https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
+/* scrolling styling */
 .scrolling-wrapper {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch !important;
 }
+  .scrollContent {
+    flex: 0 0 auto;
+    margin: 5px;
+    /* display: inline-block; */
+  }
 
-.scrollContent {
-  flex: 0 0 auto;
-  margin: 5px;
-  /* display: inline-block; */
+  .scrolling-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .info{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .sectionTitle{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .areaEnvM {
+    width: 75px;
+    position: absolute;
+    z-index: 1;
+    right: 16px;
+    top: 180px;
 }
 
-.scrolling-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.info {
-  word-wrap: break-word;
-  white-space: pre-wrap;
+.areaEnvD {
+  width: 75px;
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  top: 223px;
 }
 
 /* Bryan's Card CSS */
+
 
 /* CSS for the Cards
 A lot of help from https://codepen.io/kreigd/pen/ybYNoN */

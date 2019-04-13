@@ -168,8 +168,6 @@ const genCardInfo = () => {
     let school1 = selectedSchools[1].dataset.schoolidnum
     let school2 = selectedSchools[2].dataset.schoolidnum
     let progOfInt = document.querySelector(`#selectedProgram`).dataset.programid
-
-
     let card = 0
     fetch(`https://api.data.gov/ed/collegescorecard/v1/schools?id=${school0},${school1},${school2}&_fields=location.lat,location.lon,id,school.name,school.city,school.zip,school.locale,latest.academics.program.bachelors.${progOfInt},latest.academics.program_percentage.${progOfInt},school.minority_serving.hispanic,latest.admissions.admission_rate.overall,latest.student.size,latest.student.size,latest.cost.attendance.academic_year,latest.student.demographics.female_share,latest.student.demographics.first_generation,latest.student.demographics.race_ethnicity.white,latest.student.demographics.race_ethnicity.black,latest.student.demographics.race_ethnicity.hispanic,latest.student.demographics.race_ethnicity.asian,latest.student.demographics.race_ethnicity.aian,latest.student.demographics.race_ethnicity.nhpi,latest.student.demographics.race_ethnicity.asian_pacific_islander,school.school_url&_per_page=32&api_key=IP4euHv2WjsUP1jrD2yCi4dQtC4B3jOARrFVQiLL`)
         .then(r => r.json())
@@ -214,13 +212,277 @@ const genCardInfo = () => {
                 /////CALL WEATHER AND YELP API FUNCTIONS HERE/////
                 //////////////////////////////////////////////////
 
-
                 weather(lat, lon, card)
                 nearbyRestaurants(lat, lon, card)
 
 
                 //ENVIRONMENT IMAGES
 
+
+                weather(lat, lon, card)
+                nearbyRestaurants(lat, lon, card)
+
+
+                /////SCHOOL IMGES
+                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school0}.png"`)
+                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school0}.png"`)
+
+                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school1}.png"`)
+                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school1}.png"`)
+
+
+                // document.querySelector(`#dLogo${card}`).setAttribute("src", `"./assets/images/${school2}.png"`)
+                // document.querySelector(`#mLogo${card}`).setAttribute("src", `"./assets/images/${school2}.png"`)
+
+                if (size <= 13) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/cityscape.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/cityscape.svg")
+                }
+                if (size > 13 && size <= 23) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/home.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/home.svg")
+                    
+                }
+                if (size > 23 && size <= 33) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/village.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/village.svg")
+                }
+                if (size > 33 && size <= 43) {
+                    document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/fields.svg")
+                    document.querySelector(`#dEnv${card}`).setAttribute("src", "./assets/images/fields.svg")
+
+                }
+
+
+                document.querySelector(`#mTitle${card}`).innerHTML = name
+                document.querySelector(`#dTitle${card}`).innerHTML = name
+
+                switch (progOffered) {
+                    case 0:
+                        progOfferedText = "This program is not offered here."
+                        document.querySelector(`#mSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>`
+
+                        document.querySelector(`#dSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>`
+                    case 1:
+                        progOfferedText = "This Program is offfered here!"
+                        document.querySelector(`#mSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>
+                        
+                        <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percGrad}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of students that graduated from this program last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${admRate}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of applicants that were accepted to the University last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${cost}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Approximate annual cost of attending this institution including tuition, housing, textbooks and supplies, and food.</p>
+                        </div>
+                      </div>
+
+                        `
+
+                        document.querySelector(`#dSchool${card}`).innerHTML = `
+                        <h3 sectionTitle align-middle>${progOfferedText}</h3>
+                        
+                        <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percGrad}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of students that graduated from this program last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${admRate}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of applicants that were accepted to the University last year.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${cost}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Approximate annual cost of attending this institution including tuition, housing, textbooks and supplies, and food.</p>
+                        </div>
+                      </div>
+
+                        `
+                }
+
+               
+
+                document.querySelector(`#mDemDetails${card}`).innerHTML = `
+                <h3 class="sectionTitle align-middle">Demographics Snapshot:</h3>
+                <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percFem}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of student body that is female.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${firstGen}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students who are the first in their families to attend higher education.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${hispanic}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hispanic.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${black}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of African descent.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${aian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as American Indian or Alaskan Native.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${white}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of Students who are Caucasian.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${asian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian background.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${api}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian or Pacific Islander heritage.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${nhpi}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hawaian or Pacific Islander.</p>
+                      </div>
+                    </div>
+
+                `
+
+
+                document.querySelector(`#dDemDetails${card}`).innerHTML = `
+                <h3 class="sectionTitle align-middle">Demographics Snapshot:</h3>
+                <div class="card scrollContent" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">${percFem}%</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="info">Percent of student body that is female.</p>
+                        </div>
+                      </div>
+
+                      <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${firstGen}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students who are the first in their families to attend higher education.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${hispanic}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hispanic.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${black}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of African descent.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${aian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as American Indian or Alaskan Native.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${white}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of Students who are Caucasian.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${asian}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian background.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${api}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students of Asian or Pacific Islander heritage.</p>
+                      </div>
+                    </div>
+
+                    <div class="card scrollContent" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">${nhpi}%</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="info">Percent of students identifying as Hawaian or Pacific Islander.</p>
+                      </div>
+                    </div>
+
+                `
+                card++
+
+            });
 
                 if (size <= 13) {
                     document.querySelector(`#mEnv${card}`).setAttribute("src", "./assets/images/cityscape.svg")
@@ -482,9 +744,8 @@ const genCardInfo = () => {
 
 }
 
-
-
 //WEATHER API
+
 const weather = (lat, lon, card) => {
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}5&units=imperial&appid=5c221ff448d1c7f08a04de1abb0653aa`)
@@ -609,9 +870,8 @@ const autocomplete = (inputField, searchArray, key) => {
                         selectedSchool.setAttribute("data-schoolidnum", `${id}`)
                         selectedSchool.innerHTML = `
                     <p>${e.currentTarget.getElementsByTagName("input")[0].value}</p>
-                    <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage.svg" width="50px auto">
+                    <input type="image" class="img-fluid delete" id="delete${id}" data-schoolid="${id}" src="./assets/images/garbage.svg" width="40px auto">
                     `
-
                         document.querySelector('#threeSchools').appendChild(selectedSchool)
 
                         if (document.querySelector('#threeSchools').childElementCount === 3) {
@@ -741,6 +1001,7 @@ $('.carousel').carousel({
 })
 
 //YELP API
+
 const API_KEY = `iVz6PibRAoLRoTSl56wquqWLvwwmn2iiP4Wo1iQ5s0mMnZCWH-z1fJxqUrJ28RPlnzVPnkwGmTuccBdYABv17K_608JxM8HAmq8syuOHiB59yKC8Pb5-djqI6KWfXHYx`;
 let queryURL
 let urlYelp
@@ -761,6 +1022,7 @@ const nearbyRestaurants = (lat, lon, card) => {
     let zipcode = []
     let type = []
     // let image = []
+
 
     fetch(queryURL, {
 
@@ -805,7 +1067,6 @@ const nearbyRestaurants = (lat, lon, card) => {
                                  ${zipcode[0]}
                                  </p>
 
-
                                    </div>
                                 </div>
 
@@ -843,6 +1104,7 @@ const nearbyRestaurants = (lat, lon, card) => {
 
             document.querySelector(`#dYelp${card}`).innerHTML = `
                          <div class="card scrollContent" style="width: 18rem;">
+<
                           <div class="card-body text-center">
                           <h5><a class="card-title text-bold" a href="${url[0]}">${name[0]} </a></h5>
                           <p><h9 class="text-muted">${type[0]}</p></h9>
