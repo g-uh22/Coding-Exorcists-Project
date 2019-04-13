@@ -216,13 +216,6 @@ const genCardInfo = () => {
                 nearbyRestaurants(lat, lon, card)
 
 
-                //ENVIRONMENT IMAGES
-
-
-                weather(lat, lon, card)
-                nearbyRestaurants(lat, lon, card)
-
-
                 /////SCHOOL IMGES
                 document.querySelector(`#mLogo${card}`).setAttribute("src", `./assets/images/${id}.png`)
                 document.querySelector(`#dLogo${card}`).setAttribute("src", `./assets/images/${id}.png`)
